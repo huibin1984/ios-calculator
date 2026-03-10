@@ -22,13 +22,16 @@ class CalculatorViewModel: ObservableObject {
     
     private let engine: CalculatorEngine
     private let voiceManager: VoiceManager
+    private let hapticManager: HapticFeedbackManager
     
     // MARK: - Initialization
     
     init(engine: CalculatorEngine = CalculatorEngine(),
-         voiceManager: VoiceManager = .shared) {
+         voiceManager: VoiceManager = .shared,
+         hapticManager: HapticFeedbackManager = .shared) {
         self.engine = engine
         self.voiceManager = voiceManager
+        self.hapticManager = hapticManager
         
         voiceManager.isEnabled = true
     }
@@ -40,6 +43,7 @@ class CalculatorViewModel: ObservableObject {
         isScientificMode = false
         engine.switchToBasicMode()
         displayValue = "0"
+        hapticManager.modeSwitched()
         voiceManager.speakModeSwitch(to: .basic)
     }
     
@@ -47,6 +51,7 @@ class CalculatorViewModel: ObservableObject {
     func switchToScientificMode() {
         isScientificMode = true
         engine.switchToScientificMode()
+        hapticManager.modeSwitched()
         voiceManager.speakModeSwitch(to: .scientific)
     }
     
@@ -64,6 +69,7 @@ class CalculatorViewModel: ObservableObject {
     func inputDigit(_ digit: Int) {
         engine.inputDigit(digit)
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.digitButtonTapped()
         voiceManager.speakDigit(digit)
     }
     
@@ -71,6 +77,7 @@ class CalculatorViewModel: ObservableObject {
     func inputDecimalPoint() {
         engine.inputDecimalPoint()
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.lightTap()
         voiceManager.speakDecimalPoint()
     }
     
@@ -79,31 +86,37 @@ class CalculatorViewModel: ObservableObject {
     /// 执行加法
     func add() {
         engine.performOperation(.add)
+        hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.add)
     }
     
     /// 执行减法
     func subtract() {
         engine.performOperation(.subtract)
+        hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.subtract)
     }
     
     /// 执行乘法
     func multiply() {
         engine.performOperation(.multiply)
+        hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.multiply)
     }
     
     /// 执行除法
     func divide() {
         engine.performOperation(.divide)
+        hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.divide)
     }
     
-    /// 计算等号 (增强版 - 朗读结果)
+    /// 计算等号 (增强版 - 朗读结果 + 触觉反馈)
     func equals() {
         let result = engine.equals()
         displayValue = formatNumber(result)
+        
+        hapticManager.equalsPressed()
         voiceManager.speakEquals()
         
         // 延迟朗读结果，避免与"等于"重叠
@@ -119,6 +132,7 @@ class CalculatorViewModel: ObservableObject {
     func clearCurrent() {
         engine.clearCurrent()
         displayValue = "0"
+        hapticManager.clearAction()
         voiceManager.speakClear()
     }
     
@@ -126,6 +140,7 @@ class CalculatorViewModel: ObservableObject {
     func allClear() {
         engine.allClear()
         displayValue = "0"
+        hapticManager.heavyTap()
         voiceManager.speakAllClear()
     }
     
@@ -135,6 +150,7 @@ class CalculatorViewModel: ObservableObject {
     func toggleSign() {
         engine.toggleSign()
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.mediumTap()
         voiceManager.speakToggleSign()
     }
     
@@ -144,6 +160,7 @@ class CalculatorViewModel: ObservableObject {
     func percent() {
         engine.performOperation(.percent)
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.mediumTap()
         voiceManager.speakOperation(.percent)
     }
     
@@ -153,6 +170,7 @@ class CalculatorViewModel: ObservableObject {
     func memoryAdd() {
         engine.memoryAdd()
         hasMemory = engine.memoryValue != 0
+        hapticManager.memoryOperation()
         voiceManager.speakMemoryAdd()
     }
     
@@ -160,14 +178,16 @@ class CalculatorViewModel: ObservableObject {
     func memorySubtract() {
         engine.memorySubtract()
         hasMemory = engine.memoryValue != 0
+        hapticManager.memoryOperation()
         voiceManager.speakMemorySubtract()
     }
     
-    /// 读取记忆 (MR) - 增强版：朗读数值
+    /// 读取记忆 (MR) - 增强版：朗读数值 + 触觉反馈
     func memoryRecall() {
         let value = engine.memoryRecall()
         displayValue = formatNumber(value)
         hasMemory = engine.memoryValue != 0
+        hapticManager.memoryOperation()
         voiceManager.speakMemoryRecall(value)
     }
     
@@ -175,6 +195,7 @@ class CalculatorViewModel: ObservableObject {
     func memoryClear() {
         engine.memoryClear()
         hasMemory = false
+        hapticManager.memoryOperation()
         voiceManager.speakMemoryClear()
     }
     
@@ -182,6 +203,7 @@ class CalculatorViewModel: ObservableObject {
     func memoryStore() {
         engine.memoryStore()
         hasMemory = true
+        hapticManager.memoryOperation()
         voiceManager.speakMemoryStore(engine.currentValue)
     }
     
@@ -191,6 +213,7 @@ class CalculatorViewModel: ObservableObject {
     func square() {
         let result = engine.square()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.square)
     }
     
@@ -198,6 +221,7 @@ class CalculatorViewModel: ObservableObject {
     func cube() {
         let result = engine.cube()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.cube)
     }
     
@@ -205,6 +229,7 @@ class CalculatorViewModel: ObservableObject {
     func squareRoot() {
         let result = engine.squareRoot()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.sqrt)
     }
     
@@ -212,6 +237,7 @@ class CalculatorViewModel: ObservableObject {
     func sine() {
         let result = engine.sine()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.sin)
     }
     
@@ -219,6 +245,7 @@ class CalculatorViewModel: ObservableObject {
     func cosine() {
         let result = engine.cosine()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.cos)
     }
     
@@ -226,6 +253,7 @@ class CalculatorViewModel: ObservableObject {
     func tangent() {
         let result = engine.tangent()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.tan)
     }
     
@@ -233,6 +261,7 @@ class CalculatorViewModel: ObservableObject {
     func logarithm() {
         let result = engine.logarithm()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.log)
     }
     
@@ -240,6 +269,7 @@ class CalculatorViewModel: ObservableObject {
     func naturalLogarithm() {
         let result = engine.naturalLogarithm()
         displayValue = formatNumber(result)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.ln)
     }
     
@@ -247,6 +277,7 @@ class CalculatorViewModel: ObservableObject {
     func setPi() {
         engine.setPi()
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakPi()
     }
     
@@ -254,6 +285,7 @@ class CalculatorViewModel: ObservableObject {
     func setEuler() {
         engine.setEuler()
         displayValue = formatNumber(engine.currentValue)
+        hapticManager.scientificFunctionTapped()
         voiceManager.speakEuler()
     }
     
@@ -263,12 +295,16 @@ class CalculatorViewModel: ObservableObject {
     func toggleVoice() {
         voiceEnabled.toggle()
         voiceManager.isEnabled = voiceEnabled
+        hapticManager.selectionChange()
     }
     
     // MARK: - Private Methods
     
     private func formatNumber(_ number: Decimal) -> String {
-        guard number != .greatestFiniteMagnitude else { return "Error" }
+        guard number != .greatestFiniteMagnitude else { 
+            hapticManager.calculationError()
+            return "Error" 
+        }
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -289,9 +325,7 @@ class CalculatorViewModel: ObservableObject {
         
         // 如果有小数点，移除末尾的零
         if let decimalRange = result.range(of: ".") {
-            var endIndex = decimalRange.upperBound
-            while endIndex < result.endIndex && result[endIndex] == "0" {
-                endIndex.formIndex(after: endIndex, byOffset: -1)
+            while result.last == "0" {
                 result.removeLast()
             }
             
