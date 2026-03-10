@@ -15,6 +15,9 @@ class CalculatorViewModel: ObservableObject {
     /// 是否有记忆值
     @Published var hasMemory: Bool = false
     
+    /// 计算器模式 (普通商用版/科学版)
+    @Published var isScientificMode: Bool = false
+    
     // MARK: - Private Properties
     
     private let engine: CalculatorEngine
@@ -28,6 +31,32 @@ class CalculatorViewModel: ObservableObject {
         self.voiceManager = voiceManager
         
         voiceManager.isEnabled = true
+    }
+    
+    // MARK: - Mode Switching
+    
+    /// 切换到普通商用版
+    func switchToBasicMode() {
+        isScientificMode = false
+        engine.switchToBasicMode()
+        displayValue = "0"
+        voiceManager.speakModeSwitch(to: .basic)
+    }
+    
+    /// 切换到科学版
+    func switchToScientificMode() {
+        isScientificMode = true
+        engine.switchToScientificMode()
+        voiceManager.speakModeSwitch(to: .scientific)
+    }
+    
+    /// 切换计算器模式
+    func toggleMode() {
+        if isScientificMode {
+            switchToBasicMode()
+        } else {
+            switchToScientificMode()
+        }
     }
     
     // MARK: - Digit Input (0-9)
@@ -71,11 +100,17 @@ class CalculatorViewModel: ObservableObject {
         voiceManager.speakOperation(.divide)
     }
     
-    /// 计算等号
+    /// 计算等号 (增强版 - 朗读结果)
     func equals() {
-        _ = engine.equals()
-        displayValue = formatNumber(engine.currentValue)
+        let result = engine.equals()
+        displayValue = formatNumber(result)
         voiceManager.speakEquals()
+        
+        // 延迟朗读结果，避免与"等于"重叠
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            guard let self = self else { return }
+            voiceManager.speakResult(result)
+        }
     }
     
     // MARK: - Clear Functions
@@ -128,12 +163,12 @@ class CalculatorViewModel: ObservableObject {
         voiceManager.speakMemorySubtract()
     }
     
-    /// 读取记忆 (MR)
+    /// 读取记忆 (MR) - 增强版：朗读数值
     func memoryRecall() {
         let value = engine.memoryRecall()
         displayValue = formatNumber(value)
         hasMemory = engine.memoryValue != 0
-        voiceManager.speakMemoryRecall()
+        voiceManager.speakMemoryRecall(value)
     }
     
     /// 清除记忆 (MC)
@@ -141,6 +176,13 @@ class CalculatorViewModel: ObservableObject {
         engine.memoryClear()
         hasMemory = false
         voiceManager.speakMemoryClear()
+    }
+    
+    /// 存储到记忆 (MS) - 新增功能
+    func memoryStore() {
+        engine.memoryStore()
+        hasMemory = true
+        voiceManager.speakMemoryStore(engine.currentValue)
     }
     
     // MARK: - Scientific Functions

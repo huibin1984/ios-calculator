@@ -9,9 +9,13 @@ struct CalculatorView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // 语音开关 (右上角)
+            // 顶部控制栏：模式切换 + 语音开关
             HStack {
+                ModeToggleView(isScientificMode: $viewModel.isScientificMode, 
+                              toggleAction: viewModel.toggleMode)
+                
                 Spacer()
+                
                 VoiceToggleView(viewModel: viewModel)
             }
             
@@ -20,8 +24,12 @@ struct CalculatorView: View {
             
             Spacer()
             
-            // 按钮区域
-            ButtonGridView(viewModel: viewModel)
+            // 按钮区域 (根据模式显示不同内容)
+            if viewModel.isScientificMode {
+                ScientificButtonGridView(viewModel: viewModel)
+            } else {
+                BasicButtonGridView(viewModel: viewModel)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.edgesIgnoringSafeArea(.all))
@@ -63,40 +71,44 @@ struct DisplayView: View {
     }
 }
 
-// MARK: - Button Grid View
+// MARK: - Mode Toggle View
 
-struct ButtonGridView: View {
+struct ModeToggleView: View {
+    let isScientificMode: Bool
+    let toggleAction: () -> Void
+    
+    var body: some View {
+        Button(action: toggleAction) {
+            HStack(spacing: 4) {
+                Image(systemName: isScientificMode ? "flame.fill" : "1.2")
+                    .font(.caption)
+                Text(isScientificMode ? "科学版" : "商用版")
+                    .font(.caption2)
+            }
+            .foregroundColor(isScientificMode ? .orange : .white)
+            .padding(8)
+            .background(Color.black.opacity(0.5))
+            .cornerRadius(10)
+        }
+    }
+}
+
+// MARK: - Basic Button Grid (普通商用版)
+
+struct BasicButtonGridView: View {
     @ObservedObject var viewModel: CalculatorViewModel
     
     var body: some View {
         VStack(spacing: 12) {
-            // 第一行：记忆功能 + 科学常数
+            // 记忆功能行
             HStack(spacing: 12) {
                 MemoryButton(title: "MC", action: viewModel.memoryClear)
                 MemoryButton(title: "MR", action: viewModel.memoryRecall)
-                MemoryButton(title: "M-", action: viewModel.memorySubtract)
+                MemoryButton(title: "MS", action: viewModel.memoryStore)
                 MemoryButton(title: "M+", action: viewModel.memoryAdd)
             }
             
-            // 第二行：科学函数 (上排)
-            HStack(spacing: 12) {
-                ScientificButton(title: "sin", action: viewModel.sine)
-                ScientificButton(title: "cos", action: viewModel.cosine)
-                ScientificButton(title: "tan", action: viewModel.tangent)
-                ScientificButton(title: "log", action: viewModel.logarithm)
-            }
-            
-            // 第三行：科学函数 (下排) + π, e
-            HStack(spacing: 12) {
-                ScientificButton(title: "ln", action: viewModel.naturalLogarithm)
-                ScientificButton(title: "x²", action: viewModel.square)
-                ScientificButton(title: "√", action: viewModel.squareRoot)
-                ConstantButton(title: "π", action: viewModel.setPi)
-                Spacer()
-                ConstantButton(title: "e", action: viewModel.setEuler)
-            }
-            
-            // 第四行：清除 + 正负 + 除 + 乘
+            // 清除 + 正负 + 除 + 乘
             HStack(spacing: 12) {
                 FunctionButton(title: "AC", action: viewModel.allClear)
                 FunctionButton(title: "+/-", action: viewModel.toggleSign)
@@ -104,15 +116,15 @@ struct ButtonGridView: View {
                 OperatorButton(title: "÷", action: viewModel.divide)
             }
             
-            // 第五行：7, 8, 9, +
+            // 7, 8, 9, +
             HStack(spacing: 12) {
                 NumberButton(title: "7", action: { viewModel.inputDigit(7) })
                 NumberButton(title: "8", action: { viewModel.inputDigit(8) })
                 NumberButton(title: "9", action: { viewModel.inputDigit(9) })
-                OperatorButton(title: "×", action: viewModel.multiply)
+                OperatorButton(title: "+", action: viewModel.add)
             }
             
-            // 第六行：4, 5, 6, -
+            // 4, 5, 6, -
             HStack(spacing: 12) {
                 NumberButton(title: "4", action: { viewModel.inputDigit(4) })
                 NumberButton(title: "5", action: { viewModel.inputDigit(5) })
@@ -120,15 +132,15 @@ struct ButtonGridView: View {
                 OperatorButton(title: "-", action: viewModel.subtract)
             }
             
-            // 第七行：1, 2, 3, +
+            // 1, 2, 3, ×
             HStack(spacing: 12) {
                 NumberButton(title: "1", action: { viewModel.inputDigit(1) })
                 NumberButton(title: "2", action: { viewModel.inputDigit(2) })
                 NumberButton(title: "3", action: { viewModel.inputDigit(3) })
-                OperatorButton(title: "+", action: viewModel.add)
+                OperatorButton(title: "×", action: viewModel.multiply)
             }
             
-            // 第八行：0, ., =
+            // 0, ., =
             HStack(spacing: 12) {
                 NumberButton(title: "0", action: { viewModel.inputDigit(0) })
                     .frame(maxWidth: .infinity)
@@ -141,7 +153,83 @@ struct ButtonGridView: View {
     }
 }
 
-// MARK: - Button Components
+// MARK: - Scientific Button Grid (科学版)
+
+struct ScientificButtonGridView: View {
+    @ObservedObject var viewModel: CalculatorViewModel
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            // 记忆功能行
+            HStack(spacing: 12) {
+                MemoryButton(title: "MC", action: viewModel.memoryClear)
+                MemoryButton(title: "MR", action: viewModel.memoryRecall)
+                MemoryButton(title: "MS", action: viewModel.memoryStore)
+                MemoryButton(title: "M+", action: viewModel.memoryAdd)
+            }
+            
+            // 科学函数行 1
+            HStack(spacing: 12) {
+                ScientificButton(title: "sin", action: viewModel.sine)
+                ScientificButton(title: "cos", action: viewModel.cosine)
+                ScientificButton(title: "tan", action: viewModel.tangent)
+                ScientificButton(title: "log", action: viewModel.logarithm)
+            }
+            
+            // 科学函数行 2
+            HStack(spacing: 12) {
+                ScientificButton(title: "ln", action: viewModel.naturalLogarithm)
+                ScientificButton(title: "x²", action: viewModel.square)
+                ScientificButton(title: "√", action: viewModel.squareRoot)
+                ConstantButton(title: "π", action: viewModel.setPi)
+            }
+            
+            // 清除 + 正负 + 除 + 乘
+            HStack(spacing: 12) {
+                FunctionButton(title: "AC", action: viewModel.allClear)
+                FunctionButton(title: "+/-", action: viewModel.toggleSign)
+                FunctionButton(title: "%", action: viewModel.percent)
+                OperatorButton(title: "÷", action: viewModel.divide)
+            }
+            
+            // 7, 8, 9, +
+            HStack(spacing: 12) {
+                NumberButton(title: "7", action: { viewModel.inputDigit(7) })
+                NumberButton(title: "8", action: { viewModel.inputDigit(8) })
+                NumberButton(title: "9", action: { viewModel.inputDigit(9) })
+                OperatorButton(title: "+", action: viewModel.add)
+            }
+            
+            // 4, 5, 6, -
+            HStack(spacing: 12) {
+                NumberButton(title: "4", action: { viewModel.inputDigit(4) })
+                NumberButton(title: "5", action: { viewModel.inputDigit(5) })
+                NumberButton(title: "6", action: { viewModel.inputDigit(6) })
+                OperatorButton(title: "-", action: viewModel.subtract)
+            }
+            
+            // 1, 2, 3, ×
+            HStack(spacing: 12) {
+                NumberButton(title: "1", action: { viewModel.inputDigit(1) })
+                NumberButton(title: "2", action: { viewModel.inputDigit(2) })
+                NumberButton(title: "3", action: { viewModel.inputDigit(3) })
+                OperatorButton(title: "×", action: viewModel.multiply)
+            }
+            
+            // 0, ., =
+            HStack(spacing: 12) {
+                NumberButton(title: "0", action: { viewModel.inputDigit(0) })
+                    .frame(maxWidth: .infinity)
+                
+                FunctionButton(title: ".", action: viewModel.inputDecimalPoint)
+                OperatorButton(title: "=", action: viewModel.equals)
+            }
+        }
+        .padding()
+    }
+}
+
+// MARK: - Button Components (复用之前的组件)
 
 struct NumberButton: View {
     let title: String
@@ -156,10 +244,7 @@ struct NumberButton: View {
                 .background(Color.gray.opacity(0.3))
                 .clipShape(Circle())
         }
-        .scaleEffect(isPressed ? 0.95 : 1.0)
     }
-    
-    @State private var isPressed = false
 }
 
 struct OperatorButton: View {

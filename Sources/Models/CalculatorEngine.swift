@@ -30,6 +30,16 @@ class CalculatorEngine {
         var symbol: String { rawValue }
     }
     
+    /// 计算器模式
+    enum CalculatorMode {
+        case basic      // 普通商用版：基础运算 + 百分比 + 记忆
+        case scientific // 科学版：全部功能
+        
+        var hasScientificFunctions: Bool {
+            self == .scientific
+        }
+    }
+    
     // MARK: - Properties
     
     /// 当前输入值 (使用 Decimal 保证精度)
@@ -46,6 +56,31 @@ class CalculatorEngine {
     
     /// 是否开始新输入 (按等号后或运算完成后)
     private var shouldResetDisplay: Bool = false
+    
+    /// 计算器模式
+    private(set) var mode: CalculatorMode = .basic
+    
+    // MARK: - Mode Switching
+    
+    /// 切换到普通商用版
+    func switchToBasicMode() {
+        mode = .basic
+        allClear() // 切换模式时清除状态
+    }
+    
+    /// 切换到科学版
+    func switchToScientificMode() {
+        mode = .scientific
+    }
+    
+    /// 切换计算器模式
+    func toggleMode() {
+        if mode == .basic {
+            switchToScientificMode()
+        } else {
+            switchToBasicMode()
+        }
+    }
     
     // MARK: - Basic Operations
     
@@ -180,6 +215,11 @@ class CalculatorEngine {
     /// 清除记忆 (MC)
     func memoryClear() {
         memoryValue = 0
+    }
+    
+    /// 存储到记忆 (MS) - 覆盖当前记忆值
+    func memoryStore() {
+        memoryValue = currentValue
     }
     
     // MARK: - Scientific Functions

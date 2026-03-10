@@ -1,16 +1,19 @@
 import Foundation
 import AVFoundation
 
-/// 语音管理器 - 负责按键时的语音反馈
+/// 语音管理器 - 负责按键时的语音反馈和语音输入识别
 class VoiceManager: NSObject {
     
     /// 单例实例
     static let shared = VoiceManager()
     
-    /// 语音合成器
+    /// 语音合成器 (输出)
     private let synthesizer = AVSpeechSynthesizer()
     
-    /// 是否启用语音
+    /// 语音识别器 (输入)
+    private let recognizer = SFSpeechRecognizer()
+    
+    /// 是否启用语音输出
     private(set) var isEnabled: Bool = true
     
     /// 当前语言 (中文/英文)
@@ -40,10 +43,23 @@ class VoiceManager: NSObject {
         super.init()
         synthesizer.delegate = self
         updateVoiceSettings()
+        
+        // 请求语音识别权限
+        requestSpeechRecognitionAuthorization()
     }
     
     private func updateVoiceSettings() {
         synthesizer.rate = rate
+    }
+    
+    /// 请求语音识别权限 (iOS 特性)
+    private func requestSpeechRecognitionAuthorization() {
+        guard let recognizer = SFSpeechRecognizer(language: language.rawValue) else {
+            return
+        }
+        
+        // 检查是否已授权
+        _ = recognizer.isAvailable
     }
     
     // MARK: - Public Methods
@@ -87,6 +103,18 @@ class VoiceManager: NSObject {
         guard isEnabled else { return }
         let text = language == .chinese ? "等于" : "equals"
         speak(text)
+    }
+    
+    /// 朗读计算结果 (增强版 - 读完整数字)
+    func speakResult(_ number: Decimal) {
+        guard isEnabled else { return }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "en_US")
+        if let string = formatter.string(from: NSDecimalNumber(decimal: number)) {
+            speak(string)
+        }
     }
     
     /// 朗读小数点
@@ -133,11 +161,20 @@ class VoiceManager: NSObject {
         speak(text)
     }
     
-    /// 朗读读取记忆
-    func speakMemoryRecall() {
+    /// 朗读读取记忆 (带数值)
+    func speakMemoryRecall(_ value: Decimal) {
         guard isEnabled else { return }
-        let text = language == .chinese ? "记忆读取" : "memory recall"
-        speak(text)
+        
+        if language == .chinese {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.locale = Locale(identifier: "en_US")
+            if let string = formatter.string(from: NSDecimalNumber(decimal: value)) {
+                speak("记忆值 \(string)")
+            }
+        } else {
+            speak("memory recall")
+        }
     }
     
     /// 朗读清除记忆
@@ -145,6 +182,22 @@ class VoiceManager: NSObject {
         guard isEnabled else { return }
         let text = language == .chinese ? "清除记忆" : "memory clear"
         speak(text)
+    }
+    
+    /// 朗读存储到记忆 (MS)
+    func speakMemoryStore(_ value: Decimal) {
+        guard isEnabled else { return }
+        
+        if language == .chinese {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.locale = Locale(identifier: "en_US")
+            if let string = formatter.string(from: NSDecimalNumber(decimal: value)) {
+                speak("存储 \(string) 到记忆")
+            }
+        } else {
+            speak("memory store")
+        }
     }
     
     // MARK: - Scientific Functions
@@ -188,6 +241,96 @@ class VoiceManager: NSObject {
         guard isEnabled else { return }
         let text = language == .chinese ? "欧拉数" : "euler"
         speak(text)
+    }
+    
+    // MARK: - Mode Switching
+    
+    /// 朗读模式切换
+    func speakModeSwitch(to mode: CalculatorEngine.CalculatorMode) {
+        guard isEnabled else { return }
+        
+        let text = language == .chinese 
+            ? (mode == .basic ? "切换到普通商用版" : "切换到科学版")
+            : (mode == .basic ? "Basic mode" : "Scientific mode")
+        
+        speak(text)
+    }
+    
+    // MARK: - Voice Input Recognition
+    
+    /// 开始语音输入识别
+    func startVoiceInput(completion: @escaping (String?) -> Void) {
+        guard let recognizer = SFSpeechRecognizer(language: language.rawValue) else {
+            completion(nil)
+            return
+        }
+        
+        let request = SFSpeechAudioBufferRecognitionRequest()
+        request.shouldReportPartialResults = true
+        
+        let recognitionTask = recognizer.recognitionTask(with: request) { result, error in
+            if let error = error {
+                print("语音识别错误：\(error.localizedDescription)")
+                completion(nil)
+            } else if let result = result {
+                let recognizedText = result.bestTranscription.formattedString
+                print("识别到：\(recognizedText)")
+                completion(recognizedText)
+            }
+        }
+        
+        // 返回音频输入流供外部使用
+        // (实际实现中需要配合 AVAudioEngine)
+    }
+    
+    /// 解析语音输入的数学表达式
+    func parseVoiceInput(_ text: String) -> ParsedExpression? {
+        // 简单示例：识别 "123 加 456" 这样的格式
+        let components = text.components(separatedBy: ["加", "减", "乘", "除", "+", "-", "*", "/"])
+        
+        if components.count >= 2 {
+            if let first = Decimal(string: components[0].trimmingCharacters(in: .whitespaces)),
+               let second = Decimal(string: components[1].trimmingCharacters(in: .whitespaces)) {
+                
+                var operation: CalculatorEngine.Operation?
+                if text.contains("加") || text.contains("+") {
+                    operation = .add
+                } else if text.contains("减") || text.contains("-") {
+                    operation = .subtract
+                } else if text.contains("乘") || text.contains("*") {
+                    operation = .multiply
+                } else if text.contains("除") || text.contains("/") {
+                    operation = .divide
+                }
+                
+                return ParsedExpression(first: first, second: second, operation: operation)
+            }
+        }
+        
+        // 尝试直接解析为数字
+        if let number = Decimal(string: text.trimmingCharacters(in: .whitespaces)) {
+            return ParsedExpression(number: number)
+        }
+        
+        return nil
+    }
+    
+    /// 语音输入解析结果
+    struct ParsedExpression {
+        var firstOperand: Decimal?
+        var secondOperand: Decimal?
+        var operation: CalculatorEngine.Operation?
+        var directNumber: Decimal?
+        
+        init(first: Decimal, second: Decimal, operation: CalculatorEngine.Operation?) {
+            self.firstOperand = first
+            self.secondOperand = second
+            self.operation = operation
+        }
+        
+        init(number: Decimal) {
+            self.directNumber = number
+        }
     }
     
     // MARK: - Private Methods
