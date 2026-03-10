@@ -9,8 +9,16 @@ struct CalculatorView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // 语音开关 (右上角)
+            HStack {
+                Spacer()
+                VoiceToggleView(viewModel: viewModel)
+            }
+            
             // 显示屏
             DisplayView(displayValue: $viewModel.displayValue, hasMemory: $viewModel.hasMemory)
+            
+            Spacer()
             
             // 按钮区域
             ButtonGridView(viewModel: viewModel)
@@ -41,6 +49,8 @@ struct DisplayView: View {
                     .foregroundColor(.white.opacity(0.7))
             }
             
+            Spacer()
+            
             // 主显示屏
             Text(displayValue)
                 .font(.system(size: 64, weight: .light, design: .rounded))
@@ -49,7 +59,7 @@ struct DisplayView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .padding()
-        .background(Color.black)
+        .background(Color.black.opacity(0.3))
     }
 }
 
