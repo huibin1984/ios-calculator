@@ -4,35 +4,54 @@ import SwiftUI
 struct CalculatorView: View {
     
     @StateObject private var viewModel: CalculatorViewModel
+    @State private var showHistoryPanel = false
     
     // MARK: - Body
     
     var body: some View {
-        VStack(spacing: 0) {
-            // 顶部控制栏：模式切换 + 语音开关
-            HStack {
-                ModeToggleView(isScientificMode: $viewModel.isScientificMode, 
-                              toggleAction: viewModel.toggleMode)
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                // 顶部控制栏：模式切换 + 语音开关 + 历史按钮
+                HStack {
+                    ModeToggleView(isScientificMode: $viewModel.isScientificMode, 
+                                  toggleAction: viewModel.toggleMode)
+                    
+                    Button(action: { showHistoryPanel = true }) {
+                        Image(systemName: "clock.fill")
+                            .font(.caption)
+                        Text("历史")
+                            .font(.caption2)
+                    }
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.black.opacity(0.5))
+                    .cornerRadius(10)
+                    
+                    Spacer()
+                    
+                    VoiceToggleView(viewModel: viewModel)
+                }
+                
+                // 显示屏
+                DisplayView(displayValue: $viewModel.displayValue, hasMemory: $viewModel.hasMemory)
                 
                 Spacer()
                 
-                VoiceToggleView(viewModel: viewModel)
+                // 按钮区域 (根据模式显示不同内容)
+                if viewModel.isScientificMode {
+                    ScientificButtonGridView(viewModel: viewModel)
+                } else {
+                    BasicButtonGridView(viewModel: viewModel)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.edgesIgnoringSafeArea(.all))
             
-            // 显示屏
-            DisplayView(displayValue: $viewModel.displayValue, hasMemory: $viewModel.hasMemory)
-            
-            Spacer()
-            
-            // 按钮区域 (根据模式显示不同内容)
-            if viewModel.isScientificMode {
-                ScientificButtonGridView(viewModel: viewModel)
-            } else {
-                BasicButtonGridView(viewModel: viewModel)
+            // 历史记录面板 (上滑显示)
+            if showHistoryPanel {
+                HistoryPanelView(viewModel: viewModel, isPresented: $showHistoryPanel)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.edgesIgnoringSafeArea(.all))
     }
     
     // MARK: - Initialization

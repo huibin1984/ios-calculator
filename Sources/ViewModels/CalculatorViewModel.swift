@@ -23,15 +23,21 @@ class CalculatorViewModel: ObservableObject {
     private let engine: CalculatorEngine
     private let voiceManager: VoiceManager
     private let hapticManager: HapticFeedbackManager
+    private let historyManager: TransactionHistory
+    
+    /// 当前正在构建的表达式 (用于历史记录)
+    private var currentExpression: String = ""
     
     // MARK: - Initialization
     
     init(engine: CalculatorEngine = CalculatorEngine(),
          voiceManager: VoiceManager = .shared,
-         hapticManager: HapticFeedbackManager = .shared) {
+         hapticManager: HapticFeedbackManager = .shared,
+         historyManager: TransactionHistory = .shared) {
         self.engine = engine
         self.voiceManager = voiceManager
         self.hapticManager = hapticManager
+        self.historyManager = historyManager
         
         voiceManager.isEnabled = true
     }
@@ -43,6 +49,7 @@ class CalculatorViewModel: ObservableObject {
         isScientificMode = false
         engine.switchToBasicMode()
         displayValue = "0"
+        currentExpression = ""
         hapticManager.modeSwitched()
         voiceManager.speakModeSwitch(to: .basic)
     }
@@ -69,6 +76,16 @@ class CalculatorViewModel: ObservableObject {
     func inputDigit(_ digit: Int) {
         engine.inputDigit(digit)
         displayValue = formatNumber(engine.currentValue)
+        
+        // 构建表达式
+        if currentExpression.isEmpty {
+            currentExpression = "\(digit)"
+        } else if shouldResetExpression() {
+            currentExpression = "\(digit)"
+        } else {
+            currentExpression += "\(digit)"
+        }
+        
         hapticManager.digitButtonTapped()
         voiceManager.speakDigit(digit)
     }
@@ -77,6 +94,13 @@ class CalculatorViewModel: ObservableObject {
     func inputDecimalPoint() {
         engine.inputDecimalPoint()
         displayValue = formatNumber(engine.currentValue)
+        
+        if shouldResetExpression() {
+            currentExpression = "0."
+        } else {
+            currentExpression += "."
+        }
+        
         hapticManager.lightTap()
         voiceManager.speakDecimalPoint()
     }
@@ -86,6 +110,7 @@ class CalculatorViewModel: ObservableObject {
     /// 执行加法
     func add() {
         engine.performOperation(.add)
+        updateExpression(operator: "+")
         hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.add)
     }
@@ -93,6 +118,7 @@ class CalculatorViewModel: ObservableObject {
     /// 执行减法
     func subtract() {
         engine.performOperation(.subtract)
+        updateExpression(operator: "-")
         hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.subtract)
     }
@@ -100,6 +126,7 @@ class CalculatorViewModel: ObservableObject {
     /// 执行乘法
     func multiply() {
         engine.performOperation(.multiply)
+        updateExpression(operator: "×")
         hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.multiply)
     }
@@ -107,14 +134,23 @@ class CalculatorViewModel: ObservableObject {
     /// 执行除法
     func divide() {
         engine.performOperation(.divide)
+        updateExpression(operator: "÷")
         hapticManager.operatorButtonTapped()
         voiceManager.speakOperation(.divide)
     }
     
-    /// 计算等号 (增强版 - 朗读结果 + 触觉反馈)
+    /// 计算等号 (增强版 - 朗读结果 + 触觉反馈 + 历史记录)
     func equals() {
         let result = engine.equals()
         displayValue = formatNumber(result)
+        
+        // 保存到历史记录
+        if !currentExpression.isEmpty && result != .greatestFiniteMagnitude {
+            historyManager.addTransaction(expression: "\(currentExpression) =", result: result)
+        }
+        
+        // 重置表达式为当前结果，便于连续计算
+        currentExpression = displayValue
         
         hapticManager.equalsPressed()
         voiceManager.speakEquals()
@@ -132,6 +168,7 @@ class CalculatorViewModel: ObservableObject {
     func clearCurrent() {
         engine.clearCurrent()
         displayValue = "0"
+        currentExpression = ""
         hapticManager.clearAction()
         voiceManager.speakClear()
     }
@@ -140,6 +177,7 @@ class CalculatorViewModel: ObservableObject {
     func allClear() {
         engine.allClear()
         displayValue = "0"
+        currentExpression = ""
         hapticManager.heavyTap()
         voiceManager.speakAllClear()
     }
@@ -150,6 +188,11 @@ class CalculatorViewModel: ObservableObject {
     func toggleSign() {
         engine.toggleSign()
         displayValue = formatNumber(engine.currentValue)
+        
+        if !currentExpression.isEmpty && currentExpression.first != "-" {
+            currentExpression = "-\(currentExpression)"
+        }
+        
         hapticManager.mediumTap()
         voiceManager.speakToggleSign()
     }
@@ -160,6 +203,7 @@ class CalculatorViewModel: ObservableObject {
     func percent() {
         engine.performOperation(.percent)
         displayValue = formatNumber(engine.currentValue)
+        currentExpression += "%"
         hapticManager.mediumTap()
         voiceManager.speakOperation(.percent)
     }
@@ -187,6 +231,10 @@ class CalculatorViewModel: ObservableObject {
         let value = engine.memoryRecall()
         displayValue = formatNumber(value)
         hasMemory = engine.memoryValue != 0
+        
+        // MR 会重置表达式
+        currentExpression = displayValue
+        
         hapticManager.memoryOperation()
         voiceManager.speakMemoryRecall(value)
     }
@@ -213,6 +261,7 @@ class CalculatorViewModel: ObservableObject {
     func square() {
         let result = engine.square()
         displayValue = formatNumber(result)
+        currentExpression = "√(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.square)
     }
@@ -221,6 +270,7 @@ class CalculatorViewModel: ObservableObject {
     func cube() {
         let result = engine.cube()
         displayValue = formatNumber(result)
+        currentExpression += "³"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.cube)
     }
@@ -229,6 +279,7 @@ class CalculatorViewModel: ObservableObject {
     func squareRoot() {
         let result = engine.squareRoot()
         displayValue = formatNumber(result)
+        currentExpression = "√(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.sqrt)
     }
@@ -237,6 +288,7 @@ class CalculatorViewModel: ObservableObject {
     func sine() {
         let result = engine.sine()
         displayValue = formatNumber(result)
+        currentExpression = "sin(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.sin)
     }
@@ -245,6 +297,7 @@ class CalculatorViewModel: ObservableObject {
     func cosine() {
         let result = engine.cosine()
         displayValue = formatNumber(result)
+        currentExpression = "cos(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.cos)
     }
@@ -253,6 +306,7 @@ class CalculatorViewModel: ObservableObject {
     func tangent() {
         let result = engine.tangent()
         displayValue = formatNumber(result)
+        currentExpression = "tan(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.tan)
     }
@@ -261,6 +315,7 @@ class CalculatorViewModel: ObservableObject {
     func logarithm() {
         let result = engine.logarithm()
         displayValue = formatNumber(result)
+        currentExpression = "log(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.log)
     }
@@ -269,6 +324,7 @@ class CalculatorViewModel: ObservableObject {
     func naturalLogarithm() {
         let result = engine.naturalLogarithm()
         displayValue = formatNumber(result)
+        currentExpression = "ln(\(currentExpression))"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakScientific(.ln)
     }
@@ -277,6 +333,7 @@ class CalculatorViewModel: ObservableObject {
     func setPi() {
         engine.setPi()
         displayValue = formatNumber(engine.currentValue)
+        currentExpression = "π"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakPi()
     }
@@ -285,6 +342,7 @@ class CalculatorViewModel: ObservableObject {
     func setEuler() {
         engine.setEuler()
         displayValue = formatNumber(engine.currentValue)
+        currentExpression = "e"
         hapticManager.scientificFunctionTapped()
         voiceManager.speakEuler()
     }
@@ -296,6 +354,30 @@ class CalculatorViewModel: ObservableObject {
         voiceEnabled.toggle()
         voiceManager.isEnabled = voiceEnabled
         hapticManager.selectionChange()
+    }
+    
+    // MARK: - History Access
+    
+    /// 获取最近的历史记录
+    func getRecentHistory(count: Int = 20) -> [TransactionHistory.Transaction] {
+        return historyManager.getRecentTransactions(count: count)
+    }
+    
+    /// 从历史记录恢复值
+    func restoreFromHistory(_ transaction: TransactionHistory.Transaction) {
+        engine.currentValue = transaction.result
+        displayValue = formatNumber(transaction.result)
+        currentExpression = "\(transaction.expression)\(transaction.result)"
+        hapticManager.successOccurred()
+        
+        // 语音朗读恢复的值
+        voiceManager.speakResult(transaction.result)
+    }
+    
+    /// 清除所有历史记录
+    func clearHistory() {
+        historyManager.clearAll()
+        hapticManager.mediumTap()
     }
     
     // MARK: - Private Methods
@@ -336,5 +418,18 @@ class CalculatorViewModel: ObservableObject {
         }
         
         return result
+    }
+    
+    private func updateExpression(operator op: String) {
+        if shouldResetExpression() {
+            currentExpression = "\(displayValue) \(op)"
+        } else {
+            currentExpression += " \(op)"
+        }
+    }
+    
+    private func shouldResetExpression() -> Bool {
+        // 如果刚按过等号或清除，需要重置表达式
+        return engine.shouldResetDisplay || currentExpression.isEmpty
     }
 }
