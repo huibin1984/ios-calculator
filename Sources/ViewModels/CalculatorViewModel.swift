@@ -28,7 +28,6 @@ class CalculatorViewModel: ObservableObject {
         self.voiceManager = voiceManager
         
         voiceManager.isEnabled = true
-        voiceManager.delegate = self
     }
     
     // MARK: - Digit Input (0-9)
@@ -262,11 +261,4 @@ class CalculatorViewModel: ObservableObject {
         
         return result
     }
-}
-
-// MARK: - VoiceManagerDelegate (可选扩展)
-
-extension CalculatorViewModel {
-    func voiceDidStartSpeaking() {}
-    func voiceDidFinishSpeaking() {}
 }
