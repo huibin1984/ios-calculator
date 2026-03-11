@@ -4,7 +4,33 @@
 
 ---
 
-## [v3.4] - 2026-03-11 ✨ (当前版本)
+## [v3.5] - 2026-03-11 📦 (当前版本)
+
+### ✨ 项目基础设施 (v3.5)
+
+**Package.swift**
+- Swift Package Manager 配置
+- 多平台支持：iOS 16+, macOS 13+, watchOS 9+
+- 模块化目标：App, Core, Models, ViewModels, Views
+
+**Tests 目录**
+- CalculatorEngineTests: 基础运算测试
+- EquationSolverTests: 方程求解测试
+- 覆盖加/减/乘/除/小数/内存/清除等核心功能
+
+**Resources 目录**
+- Assets.xcassets 资源目录
+- AppIcon.appiconset 应用图标配置
+- AccentColor.colorset 主题色配置
+
+**CI/CD 配置**
+- .github/workflows/ci.yml
+- GitHub Actions 自动构建
+- 自动测试流程
+
+---
+
+## [v3.4] - 2026-03-11 ✨
 
 ### ✨ 语音队列管理系统 (v3.4)
 
