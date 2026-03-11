@@ -4,6 +4,48 @@
 
 ---
 
+## [v3.2] - 2026-03-11 📚
+
+### ✨ 新增
+
+**教育模式 (v3.2)**
+- 详细解题步骤展示
+- 线性方程：识别 → 移项 → 求解 → 验证（四步法）
+- 二次方程：判别式分析 + 求根公式
+- 算术表达式步骤解析
+- EducationalSolutionView SwiftUI 组件
+- 学习提示（Tips）功能
+
+---
+
+## [v3.1] - 2026-03-11 ☁️
+
+### ✨ 新增
+
+**云同步架构 (v3.1)**
+- CloudSyncManager.swift 云同步管理器
+- 免费层：iCloud Keychain（50 条记录限制）
+- 高级层：CloudKit 架构设计（无限记录）
+- 冲突解决策略
+- SyncStatusView SwiftUI 组件
+- 实时同步状态显示
+
+---
+
+## [v3.0] - 2026-03-11 🤖
+
+### ✨ 新增
+
+**AI 方程求解器 (v3.0)**
+- AIEquationSolver.swift 本地规则引擎 + AI 架构
+- LocalEquationParser 免费版：标准格式方程解析
+  - 支持：2x + 5 = 17, 3x - 2 = 10
+- LLMEquationClient：云端 LLM API 集成架构设计
+- 支持线性方程和二次方程
+- 付费版 AI 模式预留接口
+
+---
+
 ## [v2.7] - 2026-03-11 🎨
 
 ### ✨ 新增
