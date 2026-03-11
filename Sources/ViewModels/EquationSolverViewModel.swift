@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-/// 方程求解器视图模型
+/// 方程求解器视图模型 (v2.5 + voice feedback)
 class EquationSolverViewModel: ObservableObject {
     
     // MARK: - Published Properties
@@ -16,16 +16,18 @@ class EquationSolverViewModel: ObservableObject {
     // MARK: - Private Properties
     
     private let solver: EquationSolver
+    private let voiceManager: VoiceManager
     
     // MARK: - Initialization
     
-    init(solver: EquationSolver = EquationSolver()) {
+    init(solver: EquationSolver = EquationSolver(), voiceManager: VoiceManager = VoiceManager.shared) {
         self.solver = solver
+        self.voiceManager = voiceManager
     }
     
     // MARK: - Public Methods
     
-    /// 求解方程
+    /// 求解方程 (v2.5 + voice feedback)
     func solve() {
         isSolving = true
         
@@ -55,8 +57,11 @@ class EquationSolverViewModel: ObservableObject {
         
         if let result = result {
             solutionText = result.description
+            // 语音反馈 (v2.5)
+            voiceManager.speak(text: "方程求解完成：\(result.description)")
         } else {
             solutionText = "求解失败，请检查输入"
+            voiceManager.speak(text: "求解失败，请检查输入")
         }
         
         isSolving = false

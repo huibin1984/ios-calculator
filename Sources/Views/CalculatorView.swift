@@ -1,9 +1,10 @@
 import SwiftUI
 
-/// 计算器主界面 - MVVM 架构的 View 层
+/// 计算器主界面 - MVVM 架构的 View 层 (v2.4 + bridge to equation solver)
 struct CalculatorView: View {
     
     @StateObject private var viewModel: CalculatorViewModel
+    @StateObject private var bridgeViewModel: CalculatorSolverBridgeViewModel // v2.4
     @State private var showHistoryPanel = false
     
     // MARK: - Body
@@ -28,6 +29,20 @@ struct CalculatorView: View {
                     .cornerRadius(10)
                     
                     Spacer()
+                    
+                    // 语音输入按钮 (v2.3) - 紧接语音开关
+                    Button(action: { 
+                        viewModel.handleVoiceInput()
+                    }) {
+                        Image(systemName: "mic.fill")
+                            .font(.caption)
+                        Text("语音")
+                            .font(.caption2)
+                    }
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.blue.opacity(0.7))
+                    .cornerRadius(10)
                     
                     VoiceToggleView(viewModel: viewModel)
                 }
@@ -61,7 +76,7 @@ struct CalculatorView: View {
     }
 }
 
-// MARK: - Display View
+// MARK: - Display View (v2.4 + send to equation solver)
 
 struct DisplayView: View {
     let displayValue: String
@@ -74,6 +89,25 @@ struct DisplayView: View {
                 Text("M")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.7))
+            }
+            
+            // v2.4 - "发送到方程求解器"按钮 (当有结果时显示)
+            if !displayValue.isEmpty && displayValue != "0" {
+                Button(action: {
+                    // TODO: 这里需要桥接到方程求解器的导航逻辑
+                    print("发送 \(displayValue) 到方程求解器")
+                }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.right.to.line.end")
+                            .font(.caption)
+                        Text("发送到方程求解器")
+                            .font(.caption2)
+                    }
+                    .foregroundColor(.blue)
+                    .padding(6)
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(6)
+                }
             }
             
             Spacer()

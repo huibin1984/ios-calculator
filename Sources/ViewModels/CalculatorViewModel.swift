@@ -71,6 +71,59 @@ class CalculatorViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Voice Input (v2.3)
+    
+    /// 处理语音输入按钮点击
+    @MainActor
+    func handleVoiceInput() {
+        guard voiceManager.isAuthorized else { return }
+        
+        voiceManager.requestAuthorization { [weak self] success in
+            guard let self = self, success else { return }
+            
+            DispatchQueue.main.async {
+                self.voiceManager.startListeningForNumber(
+                    language: self.voiceManager.language,
+                    completion: { numberString in
+                        if !numberString.isEmpty {
+                            self.autoParseVoiceInput(numberString)
+                        }
+                    }
+                )
+            }
+        }
+    }
+    
+    /// 智能解析语音输入，自动转换为相应的操作
+    @MainActor
+    private func autoParseVoiceInput(_ input: String) {
+        // 简单实现：直接按空格分割处理数字和运算符
+        let tokens = input.split(separator: " ")
+        
+        for token in tokens {
+            if let number = Double(token) {
+                inputNumber(number)
+            } else {
+                parseOperator(token)
+            }
+        }
+    }
+    
+    private func parseOperator(_ token: String) {
+        switch token.lowercased() {
+        case "加", "+":
+            add()
+        case "减", "-":
+            subtract()
+        case "乘", "×", "*":
+            multiply()
+        case "除", "÷", "/":
+            divide()
+        default:
+            break
+        }
+    }
+    
     // MARK: - Digit Input (0-9)
     
     func inputDigit(_ digit: Int) {
