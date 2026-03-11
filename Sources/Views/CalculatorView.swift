@@ -1,11 +1,13 @@
 import SwiftUI
 
-/// 计算器主界面 - MVVM 架构的 View 层 (v2.4 + bridge to equation solver)
+/// 计算器主界面 - MVVM 架构的 View 层 (v3.4 + Settings + Onboarding)
 struct CalculatorView: View {
     
     @StateObject private var viewModel: CalculatorViewModel
     @StateObject private var bridgeViewModel: CalculatorSolverBridgeViewModel // v2.4
+    @StateObject private var onboardingManager = OnboardingManager.shared // v3.4
     @State private var showHistoryPanel = false
+    @State private var showSettings = false // v3.4
     
     // MARK: - Body
     
@@ -50,6 +52,16 @@ struct CalculatorView: View {
                     .cornerRadius(10)
                     
                     VoiceToggleView(viewModel: viewModel)
+                    
+                    // 设置按钮 (v3.4)
+                    Button(action: { showSettings = true }) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.caption)
+                    }
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.black.opacity(0.5))
+                    .cornerRadius(10)
                 }
                 
                 // 显示屏
@@ -70,6 +82,39 @@ struct CalculatorView: View {
             // 历史记录面板 (上滑显示)
             if showHistoryPanel {
                 HistoryPanelView(viewModel: viewModel, isPresented: $showHistoryPanel)
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            NavigationView {
+                List {
+                    // 主题设置
+                    Section {
+                        NavigationLink(destination: ThemeSettingsView()) {
+                            Label("主题", systemImage: "paintbrush.fill")
+                        }
+                        
+                        NavigationLink(destination: SettingsView()) {
+                            Label("通用设置", systemImage: "gear")
+                        }
+                    } header: {
+                        Text("外观")
+                    }
+                    
+                    // 反馈
+                    Section {
+                        NavigationLink(destination: FeedbackView()) {
+                            Label("用户反馈", systemImage: "envelope.fill")
+                        }
+                    }
+                }
+                .navigationTitle("设置")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+        .onAppear {
+            // 检查是否需要显示新手引导 (v3.4)
+            if onboardingManager.shouldShowOnboarding() {
+                // 显示引导（需要配合 UIKit present）
             }
         }
     }
