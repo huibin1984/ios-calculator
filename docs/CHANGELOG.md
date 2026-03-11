@@ -6,6 +6,42 @@
 
 ## [v3.4] - 2026-03-11 ✨ (当前版本)
 
+### ✨ 语音队列管理系统 (v3.4)
+
+**VoiceQueueManager.swift**
+- 优先级队列系统（低/普通/高/紧急）
+- 2 秒内避免重复播报
+- 自动队列处理
+- VoiceSettingsManager：语言/语速/音调/音量设置
+
+### ✨ 性能监控 (v3.4)
+
+**PerformanceMonitor.swift**
+- 实时 FPS 监控（CADisplayLink）
+- 内存使用监控
+- CPU 使用监控
+- 阈值警告系统
+
+### ✨ 电池优化 (v3.4)
+
+**BatteryMonitor.swift**
+- 电池状态实时跟踪
+- 电量 < 20% 时自动减少动画
+- 电量 < 10% 时禁用触觉反馈
+
+### ✨ 操作节流 (v3.4)
+
+**OperationThrottleManager.swift**
+- 操作速度检测（操作/秒）
+- 快速点击时自动跳过动画（>10次/秒）
+- 动画时长动态调整
+- Debouncer 防抖机制
+- AnimationController 统一管理
+
+---
+
+## [v3.4] - 2026-03-11 ✨
+
 ### ✨ 语音置信度系统 (v3.4)
 
 **VoiceRecognitionManager.swift**
