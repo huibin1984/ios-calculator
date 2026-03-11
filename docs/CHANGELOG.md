@@ -4,6 +4,51 @@
 
 ---
 
+## [v3.3] - 2026-03-11 ✨ (当前版本)
+
+### ✨ 用户体验核心组件 (v3.3)
+
+**增强型按钮 (EnhancedButtons.swift)**
+- 数字按钮按下缩放动画 (scale 0.92)
+- 运算符按钮颜色变化 + 缩放动画
+- 等号按钮脉冲光环效果
+- 记忆按钮激活状态显示
+- 统一的手势反馈系统
+
+**增强型 UI 组件 (EnhancedComponents.swift)**
+- EnhancedDisplayView: 显示值变化过渡动画
+- ToastView/ToastManager: Toast 提示系统
+- LoadingIndicator: 加载状态指示器
+- ConfirmationDialog: 确认对话框组件
+
+**用户设置界面 (SettingsView.swift)**
+- 语音设置: 开关、语言、语速滑块
+- 触觉设置: 开关
+- 显示设置: 深色模式切换
+- 历史记录设置: 数量限制
+- 用户反馈入口
+
+### 🎯 GitHub Issues 优化
+
+- ✅ 已关闭 21 个旧 Issues
+- ✅ 创建新 Issues:
+  - #22: 用户体验全面优化
+  - #23: 视觉美化与主题支持
+  - #24: 性能优化与稳定性提升
+  - #25: v3.4 Voice Confidence + Onboarding
+  - #26: v3.4 Voice Queue Management
+  - #27: v3.4 Theme System
+
+### 📄 文档更新
+
+- USER_EXPERIENCE_ANALYSIS.md: 用户体验深度洞察报告
+  - 用户旅程分析
+  - 痛点深度分析
+  - 竞品对比分析
+  - v3.4 开发清单
+
+---
+
 ## [v3.3] - 2026-03-11 ✨
 
 ### ✨ 新增
