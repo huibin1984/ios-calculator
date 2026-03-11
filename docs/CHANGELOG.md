@@ -4,7 +4,34 @@
 
 ---
 
-## [v3.5] - 2026-03-11 📦 (当前版本)
+## [v3.5] - 2026-03-11 🎯 (当前版本)
+
+### ✨ 代码质量提升 (v3.5)
+
+**ErrorHandling.swift**
+- CalculatorError 完整错误类型
+- Result 扩展 (isSuccess/isFailure)
+- CalculatorEngineV2 带完整错误处理
+- InputValidator 输入验证
+- CalculatorLogger 调试日志
+
+**Utils.swift**
+- 数字格式化 (支持 1M, 1K 简化显示)
+- 日期时间格式化 (相对时间显示)
+- UserDefaults keys 常量
+- Notification names 定义
+- App constants 配置
+
+### ✨ Siri Shortcuts (v3.6 预览)
+
+**SiriShortcutsManager.swift**
+- 快捷指令捐赠
+- CalculateIntent 语音指令
+- QuickCalculateShortcut 快速计算
+
+---
+
+## [v3.5] - 2026-03-11 📦
 
 ### ✨ 项目基础设施 (v3.5)
 
