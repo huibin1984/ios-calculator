@@ -18,6 +18,9 @@ class CalculatorViewModel: ObservableObject {
     /// 计算器模式 (普通商用版/科学版)
     @Published var isScientificMode: Bool = false
     
+    /// v2.7 - 语音输入动画状态
+    @Published var isListeningToVoice: Bool = false
+    
     // MARK: - Private Properties
     
     private let engine: CalculatorEngine
@@ -71,22 +74,42 @@ class CalculatorViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Voice Input (v2.3)
+    // MARK: - Voice Input (v2.3 + v2.6 Error Handling)
     
     /// 处理语音输入按钮点击
     @MainActor
     func handleVoiceInput() {
         guard voiceManager.isAuthorized else { return }
         
+        // v2.7: 开始监听动画（未来扩展）
+        isListeningToVoice = true
+        hapticManager.selection()  // 激活触觉反馈
+        
         voiceManager.requestAuthorization { [weak self] success in
-            guard let self = self, success else { return }
+            guard let self = self, success else {
+                DispatchQueue.main.async { self.isListeningToVoice = false }
+                return
+            }
             
             DispatchQueue.main.async {
                 self.voiceManager.startListeningForNumber(
                     language: self.voiceManager.language,
+                    onListening: { [weak self] in
+                        // v2.7: 动画回调（占位符）
+                        self?.isListeningToVoice = true
+                    },
                     completion: { numberString in
-                        if !numberString.isEmpty {
-                            self.autoParseVoiceInput(numberString)
+                        DispatchQueue.main.async {
+                            self.isListeningToVoice = false
+                            
+                            if numberString.isEmpty {
+                                // v2.6: 错误处理 - 语音识别失败
+                                self.showVoiceInputError()
+                            } else {
+                                // 成功解析输入
+                                print("✅ 语音识别成功：\(numberString)")
+                                self.autoParseVoiceInput(numberString)
+                            }
                         }
                     }
                 )
@@ -94,10 +117,49 @@ class CalculatorViewModel: ObservableObject {
         }
     }
     
-    /// 智能解析语音输入，自动转换为相应的操作
+    /// v2.6: 显示语音输入错误
+    @MainActor
+    private func showVoiceInputError() {
+        // 1. Visual Feedback - Alert/Toast（这里用 print，实际应该用 UIAlert）
+        print("❌ 未识别到数字，请重试")
+        
+        // 2. Audio Feedback - Voice Announcement
+        voiceManager.speak(text: "未识别到数字，请重试")
+        
+        // 3. Haptic Feedback - Error Vibration
+        hapticManager.error()
+    }
+    
+    /// 智能解析语音输入，自动转换为相应的操作 (v2.7 + 支持运算优先级)
     @MainActor
     private func autoParseVoiceInput(_ input: String) {
-        // 简单实现：直接按空格分割处理数字和运算符
+        // v2.7: 使用 ExpressionParser 进行正确的运算优先级计算
+        let parser = ExpressionParser()
+        
+        // 尝试使用 Shunting Yard 算法解析
+        if let result = parser.parseChineseVoiceInput(input) {
+            // 解析成功，直接设置结果
+            engine.setValue(result)
+            displayValue = formatNumber(engine.currentValue)
+            currentExpression = input + " = " + displayValue
+            
+            // 记录到历史
+            historyManager.addTransaction(
+                expression: currentExpression,
+                result: engine.currentValue
+            )
+            
+            // 语音和触觉反馈
+            hapticManager.success()
+            voiceManager.speakResult(engine.currentValue)
+            
+            print("✅ 语音计算成功：\(input) = \(result)")
+            return
+        }
+        
+        // 如果解析失败，回退到旧的逐个输入模式
+        print("⚠️ 表达式解析失败，回退到逐个输入模式")
+        
         let tokens = input.split(separator: " ")
         
         for token in tokens {

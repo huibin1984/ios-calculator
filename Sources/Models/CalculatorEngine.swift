@@ -40,6 +40,14 @@ class CalculatorEngine {
         }
     }
     
+    // MARK: - Public Methods (v2.7)
+    
+    /// 直接设置当前值（用于语音表达式解析结果）
+    func setValue(_ value: Decimal) {
+        currentValue = value
+        shouldResetDisplay = true
+    }
+    
     // MARK: - Properties
     
     /// 当前输入值 (使用 Decimal 保证精度)

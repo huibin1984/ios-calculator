@@ -30,18 +30,23 @@ struct CalculatorView: View {
                     
                     Spacer()
                     
-                    // 语音输入按钮 (v2.3) - 紧接语音开关
+                    // 语音输入按钮 (v2.3 + v2.7 动画)
                     Button(action: { 
                         viewModel.handleVoiceInput()
                     }) {
-                        Image(systemName: "mic.fill")
-                            .font(.caption)
-                        Text("语音")
-                            .font(.caption2)
+                        HStack(spacing: 4) {
+                            Image(systemName: viewModel.isListeningToVoice ? "mic.fill" : "mic.fill")
+                                .font(.caption)
+                                .scaleEffect(viewModel.isListeningToVoice ? 1.2 : 1.0)
+                                .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: viewModel.isListeningToVoice)
+                            
+                            Text(viewModel.isListeningToVoice ? "正在听..." : "语音")
+                                .font(.caption2)
+                        }
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(viewModel.isListeningToVoice ? .red : .white)
                     .padding(8)
-                    .background(Color.blue.opacity(0.7))
+                    .background(viewModel.isListeningToVoice ? Color.red.opacity(0.3) : Color.blue.opacity(0.7))
                     .cornerRadius(10)
                     
                     VoiceToggleView(viewModel: viewModel)
@@ -76,27 +81,14 @@ struct CalculatorView: View {
     }
 }
 
-// MARK: - Display View (v2.4 + send to equation solver)
+// MARK: - Display View (v2.6 + Bridge Navigation)
 
 struct DisplayView: View {
     let displayValue: String
     let hasMemory: Bool
+    let onSendToEquation: () -> Void  // v2.6: 回调函数用于导航
     
     var body: some View {
-        VStack(alignment: .trailing, spacing: 8) {
-            // 记忆指示器
-            if hasMemory {
-                Text("M")
-                    .font(.caption)
-                    .foregroundColor(.white.opacity(0.7))
-            }
-            
-            // v2.4 - "发送到方程求解器"按钮 (当有结果时显示)
-            if !displayValue.isEmpty && displayValue != "0" {
-                Button(action: {
-                    // TODO: 这里需要桥接到方程求解器的导航逻辑
-                    print("发送 \(displayValue) 到方程求解器")
-                }) {
                     HStack(spacing: 4) {
                         Image(systemName: "arrow.right.to.line.end")
                             .font(.caption)
