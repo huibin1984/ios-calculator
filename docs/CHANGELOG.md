@@ -1,99 +1,105 @@
-# Changelog
+# 📝 版本历史
 
-All notable changes to this project will be documented in this file.
-
-## [v2.5] - 2026-03-11
-
-### Added
-
-**🔊 Equation Solver Voice Feedback (v2.5)**
-- Equation solver now provides voice feedback when solving equations
-- Announces solutions verbally for accessibility
-- Uses existing `VoiceManager` infrastructure
-- Supports both success and error messages
-
-## [v2.4] - 2026-03-11
-
-### Added
-
-**↔️ Calculator ↔ Equation Solver Bridge (v2.4)**
-- "Send to Equation Solver" button in DisplayView
-- One-click transfer of calculator results to equation solver
-- New `CalculatorSolverBridgeViewModel` for managing cross-module data flow
-- Haptic feedback on successful transfer
-- Future-ready architecture for bidirectional communication
-
-## [v2.3] - 2026-03-11
-
-### Added
-
-**🎤 Voice Input Button (v2.3)**
-- Microphone button in top bar (next to voice toggle)
-- Activates speech-to-text for number input
-- Smart parsing: auto-detects numbers and operators
-- Natural language support:
-  - Numbers: "一", "二", "三"... or "1", "2", "3"...
-  - Operators: "加" (+), "减" (-), "乘" (×), "除" (÷)
-- Tokenizes input and executes operations sequentially
-- Haptic feedback on activation
+所有对本项目的重大更改都将记录在此文件中。
 
 ---
 
-## [v2.2] - 2026-03-11
+## [v2.5] - 2026-03-11 🔊
 
-### Added
+### ✨ 新增
 
-**📜 Transaction History Panel**
-- Complete operation history with timestamps
-- Swipe-left to delete individual entries
-- Batch "Clear All" functionality
-- Persistent storage via `UserDefaults`
-- Animated slide-in panel (50% screen width)
-
----
-
-## [v2.1] - 2026-03-11
-
-### Added
-
-**🧮 Memory Functions (M+, M-, MR, MC)**
-- `M+`: Add current value to memory
-- `M-`: Subtract from memory
-- `MR`: Recall stored value
-- `MC`: Clear memory
-- "M" indicator on display when memory is active
+**方程求解器语音反馈 (v2.5)**
+- 方程求解完成后自动语音播报结果
+- 支持成功和错误消息的语音提示
+- 使用现有的 VoiceManager 基础设施
+- 示例："方程求解完成：x 等于二"
 
 ---
 
-## [v2.0] - 2026-03-11
+## [v2.4] - 2026-03-11 ↔️
 
-### Added
+### ✨ 新增
 
-**🔊 Voice Toggle Switch (v2.0)**
-- On/off toggle for voice feedback
-- Language selector: English / Chinese
-- Visual indicator with sound icon
-- Respects user preference globally
-
----
-
-## [v1.3] - 2026-03-11
-
-### Added
-
-**📐 Scientific Mode**
-- Advanced functions: sin, cos, tan, log, sqrt, pow
-- Toggle between Basic and Scientific modes
-- Animated button transitions
+**计算器 ↔ 方程求解器桥接 (v2.4)**
+- DisplayView 中新增"发送到方程求解器"按钮
+- 一键将计算器结果传递到方程求解器
+- 新建 `CalculatorSolverBridgeViewModel` 管理跨模块数据流
+- 成功传输时提供触觉反馈
+- 为未来双向通信预留架构接口
 
 ---
 
-## [v1.0] - 2026-03-11
+## [v2.3] - 2026-03-11 🎤
 
-### Initial Release
+### ✨ 新增
 
-- Basic arithmetic operations (+, -, ×, ÷)
-- Decimal point support
-- Clear (C) and Delete (⌫) buttons
-- Result calculation with "="
-- MVVM architecture foundation
+**语音输入按钮 (v2.3)**
+- 顶部栏新增麦克风按钮（紧接语音开关右侧）
+- 激活语音转文字进行数字输入
+- 智能解析：自动识别数字和运算符
+- 自然语言支持：
+  - 数字："一", "二", "三"... 或 "1", "2", "3"...
+  - 运算符："加" (+), "减" (-), "乘" (×), "除" (÷)
+- 分词后按顺序执行操作
+- 激活时提供触觉反馈
+
+---
+
+## [v2.2] - 2026-03-11 📜
+
+### ✨ 新增
+
+**交易历史记录面板**
+- 完整操作历史，带时间戳
+- 左滑删除单条记录
+- "清空全部"批量删除功能
+- 使用 UserDefaults 持久化存储
+- 动画滑动面板（宽度为屏幕的 50%）
+
+---
+
+## [v2.1] - 2026-03-11 🧮
+
+### ✨ 新增
+
+**记忆功能 (M+, M-, MR, MC)**
+- `M+`: 将当前值加到记忆中
+- `M-`: 从记忆中减去
+- `MR`: 读取存储的值
+- `MC`: 清空记忆
+- 记忆激活时显示屏显示 "M" 指示器
+
+---
+
+## [v2.0] - 2026-03-11 🔊
+
+### ✨ 新增
+
+**语音反馈开关 (v2.0)**
+- 语音反馈的打开/关闭切换按钮
+- 语言选择器：英文 / 中文
+- 带声音图标的视觉指示器
+- 全局尊重用户偏好设置
+
+---
+
+## [v1.3] - 2026-03-11 📐
+
+### ✨ 新增
+
+**科学计算器模式**
+- 高级函数：sin, cos, tan, log, sqrt, pow
+- 基础模式和科学模式之间切换
+- 按钮动画过渡效果
+
+---
+
+## [v1.0] - 2026-03-11 🎉
+
+### ✨ 初次发布
+
+- 基础四则运算 (+, -, ×, ÷)
+- 小数点支持
+- 清除 (C) 和删除 (⌫) 按钮
+- "=" 结果计算
+- MVVM 架构基础建设
