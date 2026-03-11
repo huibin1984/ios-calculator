@@ -4,7 +4,43 @@
 
 ---
 
-## [v3.3] - 2026-03-11 ✨ (当前版本)
+## [v3.4] - 2026-03-11 ✨ (当前版本)
+
+### ✨ 语音置信度系统 (v3.4)
+
+**VoiceRecognitionManager.swift**
+- 置信度评分系统（0-100%）
+- 高置信度（>=80%）：直接执行
+- 中置信度（50-80%）：显示确认对话框
+- 低置信度（<50%）：提示重试
+- ConfidenceIndicator 组件
+
+### ✨ 新手引导系统 (v3.4)
+
+**OnboardingManager.swift**
+- 6 步引导流程
+- Welcome → Basic Mode → Voice → Scientific → Equation → Complete
+- OnboardingOverlay 带进度指示器
+- CoachMarkView 元素高亮提示
+- UserDefaults 状态持久化
+
+### ✨ 主题系统 (v3.4)
+
+**ThemeManager.swift**
+- 4 种预设主题：经典深色、简约浅色、护眼暗色、自定义
+- ThemePreviewCard 主题预览卡片
+- ThemeSettingsView 主题设置界面
+- 跟随系统主题选项
+
+### ✨ 设置集成 (v3.4)
+
+- 计算器顶栏添加齿轮图标
+- 设置页面 Sheet 展示
+- 主题设置、通用设置、用户反馈入口
+
+---
+
+## [v3.3] - 2026-03-11 ✨
 
 ### ✨ 用户体验核心组件 (v3.3)
 
