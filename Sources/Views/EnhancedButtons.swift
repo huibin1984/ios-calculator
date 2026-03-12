@@ -162,7 +162,7 @@ struct EnhancedEqualsButton: View {
                     .fill(Color.orange)
                     .frame(width: 60, height: 60)
                 
-                Text(\"=\")
+                Text("=")
                     .font(.system(size: 32, weight: .medium))
                     .foregroundColor(.white)
             }

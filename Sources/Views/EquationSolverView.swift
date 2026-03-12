@@ -38,9 +38,10 @@ struct EquationSolverView: View {
                         Text("a =")
                             .fontWeight(.semibold)
                         
-                        TextField("", text: $viewModel.coefficientA, onCommit: viewModel.solve)
+                        TextField("输入数字", text: $viewModel.coefficientA, onCommit: viewModel.solve)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .accessibilityLabel("系数 A")
                     }
                     
                     // b 系数输入
@@ -48,9 +49,10 @@ struct EquationSolverView: View {
                         Text("b =")
                             .fontWeight(.semibold)
                         
-                        TextField("", text: $viewModel.coefficientB, onCommit: viewModel.solve)
+                        TextField("输入数字", text: $viewModel.coefficientB, onCommit: viewModel.solve)
                             .keyboardType(.decimalPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .accessibilityLabel("系数 B")
                     }
                     
                     // c 常数输入 (仅线性方程 ax + b = c 需要)
@@ -59,9 +61,10 @@ struct EquationSolverView: View {
                             Text("c =")
                                 .fontWeight(.semibold)
                             
-                            TextField("", text: $viewModel.constantC, onCommit: viewModel.solve)
+                            TextField("常数项", text: $viewModel.constantC, onCommit: viewModel.solve)
                                 .keyboardType(.decimalPad)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .accessibilityLabel("常数 C")
                         }
                     } else {
                         // 二次方程 ax² + bx + c = 0，c 是常数项
@@ -69,9 +72,10 @@ struct EquationSolverView: View {
                             Text("c =")
                                 .fontWeight(.semibold)
                             
-                            TextField("", text: $viewModel.constantC, onCommit: viewModel.solve)
+                            TextField("常数项", text: $viewModel.constantC, onCommit: viewModel.solve)
                                 .keyboardType(.decimalPad)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .accessibilityLabel("常数 C")
                         }
                     }
                 }

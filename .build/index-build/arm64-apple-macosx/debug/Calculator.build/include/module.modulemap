@@ -1,0 +1,3 @@
+module Calculator {
+    header "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/Calculator.build/include/Calculator-Swift.h"
+}

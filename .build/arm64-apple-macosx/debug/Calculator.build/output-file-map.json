@@ -1,0 +1,236 @@
+{
+  "": {
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/master.swiftdeps"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/App/CalculatorApp.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/AIEquationSolver.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/AnalyticsManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/CloudSyncManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/EducationalSolver.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/ErrorHandling.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/ExpressionParser.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/FeedbackManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/OnboardingManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/OperationThrottleManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/PerformanceMonitor.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/PurchaseManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/SiriShortcutsManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/ThemeManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/Utils.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceQueueManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceRecognitionManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Models/CalculatorEngine.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Models/EquationSolver.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Models/HapticFeedbackManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Models/TransactionHistory.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Models/VoiceManager.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorSolverBridgeViewModel.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorViewModel.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/EquationSolverViewModel.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/CalculatorView.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedButtons.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedComponents.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/EquationSolverView.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/HistoryPanelView.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/SettingsView.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceInputButton.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceToggleView.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.dia"
+  }
+}

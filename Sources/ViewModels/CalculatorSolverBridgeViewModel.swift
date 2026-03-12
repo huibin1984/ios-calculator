@@ -39,7 +39,7 @@ class CalculatorSolverBridgeViewModel: ObservableObject {
         
         // 模拟数据传递 (实际项目中需要更复杂的导航和数据持久化)
         bridgeStatusMessage = "正在发送到方程求解器..."
-        hapticManager.success()
+        hapticManager.successOccurred()
         
         // v2.6: 自动切换到方程标签页
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -60,6 +60,6 @@ class CalculatorSolverBridgeViewModel: ObservableObject {
     /// 从方程求解器接收数据回计算器 (未来扩展)
     func receiveFromEquationSolver(_ equationResult: String) {
         bridgeStatusMessage = "收到方程结果：\(equationResult)"
-        hapticManager.success()
+        hapticManager.successOccurred()
     }
 }

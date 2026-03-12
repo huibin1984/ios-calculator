@@ -111,10 +111,7 @@ struct HistoryItemView: View {
                     .font(.subheadline)
                     .foregroundColor(.orange)
                 
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .decimal
-                formatter.locale = Locale(identifier: "en_US")
-                if let resultString = formatter.string(from: NSDecimalNumber(decimal: transaction.result)) {
+                if let resultString = formatResult(transaction.result) {
                     Text(resultString)
                         .font(.subheadline.weight(.semibold))
                         .foregroundColor(.primary)
@@ -137,6 +134,13 @@ struct HistoryItemView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd HH:mm"
         return formatter.string(from: date)
+    }
+    
+    private func formatResult(_ result: Decimal) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter.string(from: NSDecimalNumber(decimal: result))
     }
 }
 

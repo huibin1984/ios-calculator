@@ -104,7 +104,7 @@ class CloudSyncManager: ObservableObject {
                 kSecAttrService as String: keychainService,
                 kSecAttrAccount as String: keychainAccount,
                 kSecValueData as String: data
-            ] as [String: Any], nil)
+            ] as CFDictionary, nil)
             
             if status == errSecSuccess {
                 lastSyncDate = Date()

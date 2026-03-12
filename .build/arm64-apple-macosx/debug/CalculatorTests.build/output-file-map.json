@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/master.swiftdeps"
+  },
+  "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.dia"
+  },
+  "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.dia"
+  }
+}

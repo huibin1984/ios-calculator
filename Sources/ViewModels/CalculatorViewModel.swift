@@ -83,32 +83,29 @@ class CalculatorViewModel: ObservableObject {
         
         // v2.7: 开始监听动画（未来扩展）
         isListeningToVoice = true
-        hapticManager.selection()  // 激活触觉反馈
+        hapticManager.selectionChange()  // 激活触觉反馈
         
         voiceManager.requestAuthorization { [weak self] success in
             guard let self = self, success else {
-                DispatchQueue.main.async { self.isListeningToVoice = false }
+                DispatchQueue.main.async { self?.isListeningToVoice = false }
                 return
             }
             
             DispatchQueue.main.async {
-                self.voiceManager.startListeningForNumber(
-                    language: self.voiceManager.language,
-                    onListening: { [weak self] in
-                        // v2.7: 动画回调（占位符）
-                        self?.isListeningToVoice = true
-                    },
-                    completion: { numberString in
-                        DispatchQueue.main.async {
-                            self.isListeningToVoice = false
+                self.isListeningToVoice = true
+                self.voiceManager.startVoiceInput(
+                    completion: { [weak self] numberStringOptional in
+                        let numberString = numberStringOptional ?? ""
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isListeningToVoice = false
                             
                             if numberString.isEmpty {
                                 // v2.6: 错误处理 - 语音识别失败
-                                self.showVoiceInputError()
+                                self?.showVoiceInputError()
                             } else {
                                 // 成功解析输入
                                 print("✅ 语音识别成功：\(numberString)")
-                                self.autoParseVoiceInput(numberString)
+                                self?.autoParseVoiceInput(numberString)
                             }
                         }
                     }
@@ -124,10 +121,10 @@ class CalculatorViewModel: ObservableObject {
         print("❌ 未识别到数字，请重试")
         
         // 2. Audio Feedback - Voice Announcement
-        voiceManager.speak(text: "未识别到数字，请重试")
+        voiceManager.speak("未识别到数字，请重试")
         
         // 3. Haptic Feedback - Error Vibration
-        hapticManager.error()
+        hapticManager.calculationError()
     }
     
     /// 智能解析语音输入，自动转换为相应的操作 (v2.7 + 支持运算优先级)
@@ -150,7 +147,7 @@ class CalculatorViewModel: ObservableObject {
             )
             
             // 语音和触觉反馈
-            hapticManager.success()
+            hapticManager.successOccurred()
             voiceManager.speakResult(engine.currentValue)
             
             print("✅ 语音计算成功：\(input) = \(result)")
@@ -163,10 +160,22 @@ class CalculatorViewModel: ObservableObject {
         let tokens = input.split(separator: " ")
         
         for token in tokens {
-            if let number = Double(token) {
-                inputNumber(number)
+            if let _ = Double(token) {
+                for char in token {
+                    if char == "." {
+                        self.engine.inputDecimalPoint()
+                    } else if let digit = Int(String(char)) {
+                        self.engine.inputDigit(digit)
+                    }
+                }
+                self.displayValue = self.formatNumber(self.engine.currentValue)
+                if self.currentExpression.isEmpty || self.shouldResetExpression() {
+                    self.currentExpression = String(token)
+                } else {
+                    self.currentExpression += " \(token)"
+                }
             } else {
-                parseOperator(token)
+                self.parseOperator(String(token))
             }
         }
     }

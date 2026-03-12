@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/master.swiftdeps"
+  },
+  "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.d",
+    "object": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/huibin/Developer/ios-calculator/.build/index-build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.dia"
+  }
+}

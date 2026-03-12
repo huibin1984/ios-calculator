@@ -45,68 +45,8 @@ class SiriShortcutsManager {
     }
 }
 
-// MARK: - Calculate Intent
+// MARK: - Calculate Intent (Removed pseudocode)
 
-@available(iOS 16.0, *)
-class CalculateIntent: INExtension, INIntentHandlerProviding {
-    
-    func handler(for intent: INIntent) -> INIntentHandler & KNSpeechRecognitionShortcutHandling {
-        return CalculateIntentHandler()
-    }
-    
-    func resolveExpression(for intent: CalculateIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        if let expression = intent.expression, !expression.isEmpty {
-            completion(.success(with: expression))
-        } else {
-            completion(.needsValue())
-        }
-    }
-    
-    func resolveResult(for intent: CalculateIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        if let result = intent.result, !result.isEmpty {
-            completion(.success(with: result))
-        } else {
-            completion(.needsValue())
-        }
-    }
-}
-
-class CalculateIntentHandler: NSObject, INIntentHandler {
-    func handle(intent: INIntent, completion: @escaping (INIntentResponse) -> Void) {
-        guard let calculateIntent = intent as? CalculateIntent,
-              let expression = calculateIntent.expression else {
-            completion(INIntentResponse(code: .failure, userActivity: nil))
-            return
-        }
-        
-        // 执行计算
-        let parser = ExpressionParser()
-        let tokens = expression.split(separator: " ").map(String.init)
-        
-        if let result = parser.evaluate(tokens: tokens) {
-            let response = CalculateIntentResponse(code: .success, userActivity: nil)
-            response.result = "\(result)"
-            completion(response)
-        } else {
-            completion(INIntentResponse(code: .failure, userActivity: nil))
-        }
-    }
-}
-
-@objc
-class CalculateIntentResponse: INIntentResponse {
-    @objc var result: String?
-    
-    @objc init(code: INIntentResponseCode, userActivity: NSUserActivity?) {
-        super.init()
-        self.code = code
-        self.userActivity = userActivity
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-}
 
 // MARK: - Quick Calculate Shortcut
 

@@ -105,7 +105,7 @@ class VoiceRecognitionManager: ObservableObject {
             if randomConfidence >= self.thresholds.high {
                 self.recognitionStatus = .success
             } else if randomConfidence >= self.thresholds.medium {
-                self.recognitionStatus = .medium == .processing ? .success : .lowConfidence
+                self.recognitionStatus = .success
             } else {
                 self.recognitionStatus = .lowConfidence
             }

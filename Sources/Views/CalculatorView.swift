@@ -16,7 +16,7 @@ struct CalculatorView: View {
             VStack(spacing: 0) {
                 // 顶部控制栏：模式切换 + 语音开关 + 历史按钮
                 HStack {
-                    ModeToggleView(isScientificMode: $viewModel.isScientificMode, 
+                    ModeToggleView(isScientificMode: viewModel.isScientificMode, 
                                   toggleAction: viewModel.toggleMode)
                     
                     Button(action: { showHistoryPanel = true }) {
@@ -46,6 +46,7 @@ struct CalculatorView: View {
                                 .font(.caption2)
                         }
                     }
+                    .accessibilityLabel(viewModel.isListeningToVoice ? "语音输入中" : "开始语音输入")
                     .foregroundColor(viewModel.isListeningToVoice ? .red : .white)
                     .padding(8)
                     .background(viewModel.isListeningToVoice ? Color.red.opacity(0.3) : Color.blue.opacity(0.7))
@@ -58,6 +59,7 @@ struct CalculatorView: View {
                         Image(systemName: "gearshape.fill")
                             .font(.caption)
                     }
+                    .accessibilityLabel("设置")
                     .foregroundColor(.white)
                     .padding(8)
                     .background(Color.black.opacity(0.5))
@@ -65,7 +67,13 @@ struct CalculatorView: View {
                 }
                 
                 // 显示屏
-                DisplayView(displayValue: $viewModel.displayValue, hasMemory: $viewModel.hasMemory)
+                DisplayView(
+                    displayValue: viewModel.displayValue,
+                    hasMemory: viewModel.hasMemory,
+                    onSendToEquation: {
+                        bridgeViewModel.sendToEquationSolver(calculatorResult: viewModel.displayValue)
+                    }
+                )
                 
                 Spacer()
                 
@@ -123,6 +131,7 @@ struct CalculatorView: View {
     
     init() {
         _viewModel = StateObject(wrappedValue: CalculatorViewModel())
+        _bridgeViewModel = StateObject(wrappedValue: CalculatorSolverBridgeViewModel())
     }
 }
 
@@ -134,30 +143,7 @@ struct DisplayView: View {
     let onSendToEquation: () -> Void  // v2.6: 回调函数用于导航
     
     var body: some View {
-                    HStack(spacing: 4) {
-                        Image(systemName: "arrow.right.to.line.end")
-                            .font(.caption)
-                        Text("发送到方程求解器")
-                            .font(.caption2)
-                    }
-                    .foregroundColor(.blue)
-                    .padding(6)
-                    .background(Color.blue.opacity(0.1))
-                    .cornerRadius(6)
-                }
-            }
-            
-            Spacer()
-            
-            // 主显示屏
-            Text(displayValue)
-                .font(.system(size: 64, weight: .light, design: .rounded))
-                .foregroundColor(.white)
-                .lineLimit(1)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-        }
-        .padding()
-        .background(Color.black.opacity(0.3))
+        EnhancedDisplayView(displayValue: displayValue, hasMemory: hasMemory, onSendToEquation: onSendToEquation)
     }
 }
 

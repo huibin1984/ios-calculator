@@ -19,7 +19,7 @@ class EducationalSolver {
         
         switch type {
         case .linear:
-            return solveLinearWithSteps(a: a, b: b, c: c ?? 0)
+            return solveLinearWithSteps(a: a ?? 0, b: b ?? 0, c: c ?? 0)
         case .quadratic:
             return solveQuadraticWithSteps(a: a!, b: b!, c: c!)
         case .arithmetic:

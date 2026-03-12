@@ -166,7 +166,7 @@ struct OnboardingOverlay: View {
             VStack(spacing: 24) {
                 // 进度指示器
                 HStack(spacing: 8) {
-                    ForEach(0..<OnboardingStep.allCases.count - 1, id: \.self) { index in
+                    ForEach(0..<OnboardingManager.OnboardingStep.allCases.count - 1, id: \.self) { index in
                         RoundedRectangle(cornerRadius: 2)
                             .fill(index <= manager.currentStep.rawValue ? Color.blue : Color.gray.opacity(0.3))
                             .frame(height: 4)

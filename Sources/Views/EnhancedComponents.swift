@@ -6,7 +6,7 @@ struct EnhancedDisplayView: View {
     let hasMemory: Bool
     let onSendToEquation: () -> Void
     
-    @State private var displayText: String = \"0\"
+    @State private var displayText: String = "0"
     @State private var showTransition = false
     
     // 当值变化时触发动画
@@ -14,19 +14,19 @@ struct EnhancedDisplayView: View {
         VStack(alignment: .trailing, spacing: 8) {
             // 记忆指示器
             if hasMemory {
-                Text(\"M\")
+                Text("M")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.7))
                     .transition(.scale.combined(with: .opacity))
             }
             
             // 发送到方程求解器按钮
-            if !displayValue.isEmpty && displayValue != \"0\" {
+            if !displayValue.isEmpty && displayValue != "0" {
                 Button(action: onSendToEquation) {
                     HStack(spacing: 4) {
-                        Image(systemName: \"arrow.right.to.line.end\")
+                        Image(systemName: "arrow.right.to.line.end")
                             .font(.caption)
-                        Text(\"发送到方程求解器\")
+                        Text("发送到方程求解器")
                             .font(.caption2)
                     }
                     .foregroundColor(.blue)
@@ -51,7 +51,7 @@ struct EnhancedDisplayView: View {
         }
         .padding()
         .background(Color.black.opacity(0.3))
-        .onChange(of: displayValue) { _, newValue in
+        .onChange(of: displayValue) { newValue in
             // 值变化时触发动画
             withAnimation(.easeInOut(duration: 0.1)) {
                 showTransition = true
@@ -87,10 +87,10 @@ struct ToastView: View {
         
         var icon: String {
             switch self {
-            case .success: return \"checkmark.circle.fill\"
-            case .error: return \"xmark.circle.fill\"
-            case .warning: return \"exclamationmark.triangle.fill\"
-            case .info: return \"info.circle.fill\"
+            case .success: return "checkmark.circle.fill"
+            case .error: return "xmark.circle.fill"
+            case .warning: return "exclamationmark.triangle.fill"
+            case .info: return "info.circle.fill"
             }
         }
     }

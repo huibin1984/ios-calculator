@@ -50,8 +50,8 @@ class CalculatorEngine {
     
     // MARK: - Properties
     
-    /// 当前输入值 (使用 Decimal 保证精度)
-    private(set) var currentValue: Decimal = 0
+    /// 当前显示的值 (内部存储为 Decimal，避免浮点数精度问题)
+    var currentValue: Decimal = 0
     
     /// 记忆值
     private(set) var memoryValue: Decimal = 0
@@ -63,7 +63,7 @@ class CalculatorEngine {
     private var pendingOperation: Operation?
     
     /// 是否开始新输入 (按等号后或运算完成后)
-    private var shouldResetDisplay: Bool = false
+    var shouldResetDisplay: Bool = false
     
     /// 计算器模式
     private(set) var mode: CalculatorMode = .basic
@@ -247,7 +247,7 @@ class CalculatorEngine {
     /// 计算平方根
     func squareRoot() -> Decimal {
         if currentValue >= 0 {
-            let doubleValue = Double(currentValue)
+            let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
             currentValue = Decimal(string: String(sqrt(doubleValue)))!
         } else {
             currentValue = 0 // 负数开方显示错误
@@ -257,7 +257,7 @@ class CalculatorEngine {
     
     /// 计算正弦 (角度制)
     func sine() -> Decimal {
-        let doubleValue = Double(currentValue)
+        let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
         let result = sin(doubleValue * .pi / 180)
         currentValue = Decimal(string: String(result))!
         return currentValue
@@ -265,7 +265,7 @@ class CalculatorEngine {
     
     /// 计算余弦 (角度制)
     func cosine() -> Decimal {
-        let doubleValue = Double(currentValue)
+        let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
         let result = cos(doubleValue * .pi / 180)
         currentValue = Decimal(string: String(result))!
         return currentValue
@@ -273,7 +273,7 @@ class CalculatorEngine {
     
     /// 计算正切 (角度制)
     func tangent() -> Decimal {
-        let doubleValue = Double(currentValue)
+        let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
         let result = tan(doubleValue * .pi / 180)
         currentValue = Decimal(string: String(result))!
         return currentValue
@@ -282,7 +282,7 @@ class CalculatorEngine {
     /// 计算常用对数 (log₁₀)
     func logarithm() -> Decimal {
         if currentValue > 0 {
-            let doubleValue = Double(currentValue)
+            let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
             let result = log10(doubleValue)
             currentValue = Decimal(string: String(result))!
         } else {
@@ -294,7 +294,7 @@ class CalculatorEngine {
     /// 计算自然对数 (ln)
     func naturalLogarithm() -> Decimal {
         if currentValue > 0 {
-            let doubleValue = Double(currentValue)
+            let doubleValue = NSDecimalNumber(decimal: currentValue).doubleValue
             let result = log(doubleValue)
             currentValue = Decimal(string: String(result))!
         } else {
@@ -306,12 +306,12 @@ class CalculatorEngine {
     /// 设置 π
     func setPi() {
         shouldResetDisplay = true
-        currentValue = Decimal(string: String(.pi))!
+        currentValue = Decimal(string: String(Double.pi))!
     }
     
     /// 设置 e
     func setEuler() {
         shouldResetDisplay = true
-        currentValue = Decimal(string: String(Double.exp(1)))!
+        currentValue = Decimal(string: String(exp(1.0)))!
     }
 }

@@ -27,8 +27,7 @@ class TransactionHistory {
     
     // MARK: - Initialization
     
-    override init() {
-        super.init()
+    init() {
         loadFromStorage()
     }
     

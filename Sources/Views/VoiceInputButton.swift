@@ -10,7 +10,7 @@ struct VoiceInputButton: View {
                 .font(.system(size: 18))
                 .foregroundColor(.white)
                 .frame(width: 32, height: 32)
-                .background(Circle().fill(Color.blue.gradient()))
+                .background(Circle().fill(Color.blue.gradient))
         }
     }
 }

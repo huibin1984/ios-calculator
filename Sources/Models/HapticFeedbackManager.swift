@@ -8,7 +8,7 @@ class HapticFeedbackManager {
     static let shared = HapticFeedbackManager()
     
     /// 是否启用触觉反馈
-    private(set) var isEnabled: Bool = true
+    var isEnabled: Bool = true
     
     /// 反馈强度 (0.5 - 2.0, 默认 1.0)
     var intensity: CGFloat = 1.0 {
@@ -20,8 +20,7 @@ class HapticFeedbackManager {
     }
     
     /// 初始化
-    override init() {
-        super.init()
+    init() {
         isEnabled = true
     }
     
@@ -32,9 +31,12 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactIntensity = intensity * 0.5
         generator.prepare()
-        generator.impactOccurred()
+        if #available(iOS 13.0, *) {
+            generator.impactOccurred(intensity: intensity * 0.5)
+        } else {
+            generator.impactOccurred()
+        }
     }
     
     /// 中等反馈 (用于运算符、等号)
@@ -42,9 +44,12 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.impactIntensity = intensity * 0.8
         generator.prepare()
-        generator.impactOccurred()
+        if #available(iOS 13.0, *) {
+            generator.impactOccurred(intensity: intensity * 0.8)
+        } else {
+            generator.impactOccurred()
+        }
     }
     
     /// 重击反馈 (用于模式切换、清除操作)
@@ -52,9 +57,12 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactIntensity = intensity
         generator.prepare()
-        generator.impactOccurred()
+        if #available(iOS 13.0, *) {
+            generator.impactOccurred(intensity: intensity)
+        } else {
+            generator.impactOccurred()
+        }
     }
     
     /// 选择反馈 (用于模式切换、选项确认)
@@ -71,7 +79,6 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UINotificationFeedbackGenerator()
-        generator.notificationIntensity = intensity
         generator.prepare()
         generator.notificationOccurred(.error)
     }
@@ -81,7 +88,6 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UINotificationFeedbackGenerator()
-        generator.notificationIntensity = intensity * 0.8
         generator.prepare()
         generator.notificationOccurred(.success)
     }
@@ -91,7 +97,6 @@ class HapticFeedbackManager {
         guard isEnabled else { return }
         
         let generator = UINotificationFeedbackGenerator()
-        generator.notificationIntensity = intensity * 0.6
         generator.prepare()
         generator.notificationOccurred(.warning)
     }

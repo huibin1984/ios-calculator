@@ -1,0 +1,1277 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.xctest/Contents/MacOS/CalculatorPackageTests",
+      "packagePath" : "/Users/huibin/Developer/ios-calculator",
+      "productName" : "CalculatorPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.Calculator-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/sources",
+      "importPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/App/CalculatorApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/AIEquationSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/AnalyticsManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/CloudSyncManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/EducationalSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ErrorHandling.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ExpressionParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/FeedbackManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/OnboardingManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/OperationThrottleManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/PerformanceMonitor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/PurchaseManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/SiriShortcutsManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ThemeManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/Utils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceQueueManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceRecognitionManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/CalculatorEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/EquationSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/HapticFeedbackManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/TransactionHistory.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/VoiceManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorSolverBridgeViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/EquationSolverViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/CalculatorView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedButtons.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedComponents.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EquationSolverView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/HistoryPanelView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/SettingsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceInputButton.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceToggleView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Calculator",
+      "moduleOutputPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/Calculator.swiftmodule",
+      "objects" : [
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/include/Calculator-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-strict-concurrency=complete",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "ios_calculator"
+      ],
+      "outputFileMapPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/Calculator.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/huibin/Developer/ios-calculator/Sources/App/CalculatorApp.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/AIEquationSolver.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/AnalyticsManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/CloudSyncManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/EducationalSolver.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/ErrorHandling.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/ExpressionParser.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/FeedbackManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/OnboardingManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/OperationThrottleManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/PerformanceMonitor.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/PurchaseManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/SiriShortcutsManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/ThemeManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/Utils.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceQueueManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceRecognitionManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Models/CalculatorEngine.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Models/EquationSolver.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Models/HapticFeedbackManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Models/TransactionHistory.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Models/VoiceManager.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorSolverBridgeViewModel.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorViewModel.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/EquationSolverViewModel.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/CalculatorView.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedButtons.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedComponents.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/EquationSolverView.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/HistoryPanelView.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/SettingsView.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceInputButton.swift",
+        "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceToggleView.swift"
+      ],
+      "tempsPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.CalculatorPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/sources",
+      "importPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "CalculatorPackageTests",
+      "moduleOutputPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/include/CalculatorPackageTests-Swift.h",
+        "-color-diagnostics",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-strict-concurrency=complete",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "ios_calculator"
+      ],
+      "outputFileMapPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.CalculatorTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/sources",
+      "importPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/Calculator.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "CalculatorTests",
+      "moduleOutputPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorTests.swiftmodule",
+      "objects" : [
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-strict-concurrency=complete",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "ios_calculator"
+      ],
+      "outputFileMapPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift",
+        "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+      ],
+      "tempsPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "Calculator" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Calculator",
+      "-package-name",
+      "ios_calculator",
+      "-c",
+      "/Users/huibin/Developer/ios-calculator/Sources/App/CalculatorApp.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/AIEquationSolver.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/AnalyticsManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/CloudSyncManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/EducationalSolver.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/ErrorHandling.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/ExpressionParser.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/FeedbackManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/OnboardingManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/OperationThrottleManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/PerformanceMonitor.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/PurchaseManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/SiriShortcutsManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/ThemeManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/Utils.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceQueueManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceRecognitionManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Models/CalculatorEngine.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Models/EquationSolver.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Models/HapticFeedbackManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Models/TransactionHistory.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Models/VoiceManager.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorSolverBridgeViewModel.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorViewModel.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/EquationSolverViewModel.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/CalculatorView.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedButtons.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedComponents.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/EquationSolverView.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/HistoryPanelView.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/SettingsView.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceInputButton.swift",
+      "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceToggleView.swift",
+      "-I",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/include/Calculator-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-strict-concurrency=complete",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "ios_calculator",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "CalculatorPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "CalculatorPackageTests",
+      "-package-name",
+      "ios_calculator",
+      "-c",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/include/CalculatorPackageTests-Swift.h",
+      "-color-diagnostics",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-strict-concurrency=complete",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "ios_calculator",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "CalculatorTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "CalculatorTests",
+      "-package-name",
+      "ios_calculator",
+      "-c",
+      "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift",
+      "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift",
+      "-I",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-strict-concurrency=complete",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "ios_calculator",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "Calculator" : [
+
+    ],
+    "CalculatorPackageTests" : [
+      "CalculatorTests",
+      "Calculator"
+    ],
+    "CalculatorTests" : [
+      "Calculator"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/App/CalculatorApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/AIEquationSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/AnalyticsManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/CloudSyncManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/EducationalSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ErrorHandling.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ExpressionParser.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/FeedbackManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/OnboardingManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/OperationThrottleManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/PerformanceMonitor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/PurchaseManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/SiriShortcutsManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/ThemeManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/Utils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceQueueManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Core/VoiceRecognitionManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/CalculatorEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/EquationSolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/HapticFeedbackManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/TransactionHistory.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Models/VoiceManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorSolverBridgeViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/CalculatorViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/ViewModels/EquationSolverViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/CalculatorView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedButtons.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EnhancedComponents.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/EquationSolverView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/HistoryPanelView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/SettingsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceInputButton.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Sources/Views/VoiceToggleView.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/sources"
+    },
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/sources"
+    },
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AIEquationSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/AnalyticsManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorSolverBridgeViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CalculatorViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/CloudSyncManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EducationalSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedButtons.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EnhancedComponents.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/EquationSolverViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ErrorHandling.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ExpressionParser.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/FeedbackManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HapticFeedbackManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/HistoryPanelView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OnboardingManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/OperationThrottleManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PerformanceMonitor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/PurchaseManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SettingsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/SiriShortcutsManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/ThemeManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/TransactionHistory.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/Utils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceInputButton.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceQueueManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceRecognitionManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Calculator.build/VoiceToggleView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/sources"
+    },
+    "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import Foundation
 import AVFoundation
+import Speech
 
 /// 语音管理器 - 负责按键时的语音反馈和语音输入识别
 class VoiceManager: NSObject {
@@ -14,7 +15,7 @@ class VoiceManager: NSObject {
     private let recognizer = SFSpeechRecognizer()
     
     /// 是否启用语音输出
-    private(set) var isEnabled: Bool = true
+    var isEnabled: Bool = true
     
     /// 当前语言 (中文/英文)
     var language: VoiceLanguage = .chinese {
@@ -42,24 +43,24 @@ class VoiceManager: NSObject {
     override init() {
         super.init()
         synthesizer.delegate = self
-        updateVoiceSettings()
         
         // 请求语音识别权限
-        requestSpeechRecognitionAuthorization()
+        requestAuthorization { _ in }
     }
     
     private func updateVoiceSettings() {
-        synthesizer.rate = rate
+        // Voice settings are applied to each utterance
     }
     
     /// 请求语音识别权限 (iOS 特性)
-    private func requestSpeechRecognitionAuthorization() {
-        guard let recognizer = SFSpeechRecognizer(language: language.rawValue) else {
-            return
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
+        SFSpeechRecognizer.requestAuthorization { status in
+            completion(status == .authorized)
         }
-        
-        // 检查是否已授权
-        _ = recognizer.isAvailable
+    }
+    
+    var isAuthorized: Bool {
+        SFSpeechRecognizer.authorizationStatus() == .authorized
     }
     
     // MARK: - Public Methods
@@ -260,7 +261,7 @@ class VoiceManager: NSObject {
     
     /// 开始语音输入识别
     func startVoiceInput(completion: @escaping (String?) -> Void) {
-        guard let recognizer = SFSpeechRecognizer(language: language.rawValue) else {
+        guard let recognizer = SFSpeechRecognizer(locale: Locale(identifier: language.rawValue)) else {
             completion(nil)
             return
         }
@@ -335,7 +336,7 @@ class VoiceManager: NSObject {
     
     // MARK: - Private Methods
     
-    private func speak(_ text: String) {
+    func speak(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: language.rawValue)
         utterance.rate = rate

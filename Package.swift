@@ -11,46 +11,18 @@ let package = Package(
     products: [
         .library(
             name: "Calculator",
-            targets: ["App", "Core", "Models", "ViewModels", "Views"])
+            targets: ["Calculator"])
     ],
     dependencies: [
-        // SwiftUI built-in
     ],
     targets: [
-        // App Target
         .target(
-            name: "App",
-            dependencies: ["Core", "Models", "ViewModels", "Views"],
-            path: "Sources/App"),
-        
-        // Core (Business Logic)
-        .target(
-            name: "Core",
+            name: "Calculator",
             dependencies: [],
-            path: "Sources/Core"),
-        
-        // Models (Data Layer)
-        .target(
-            name: "Models",
-            dependencies: ["Core"],
-            path: "Sources/Models"),
-        
-        // ViewModels (Presentation Logic)
-        .target(
-            name: "ViewModels",
-            dependencies: ["Core", "Models"],
-            path: "Sources/ViewModels"),
-        
-        // Views (UI Layer)
-        .target(
-            name: "Views",
-            dependencies: ["ViewModels"],
-            path: "Sources/Views"),
-        
-        // Test Target
+            path: "Sources"),
         .testTarget(
             name: "CalculatorTests",
-            dependencies: ["Core", "Models"],
+            dependencies: ["Calculator"],
             path: "Tests"),
     ]
 )

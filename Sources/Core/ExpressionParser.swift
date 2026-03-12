@@ -45,12 +45,8 @@ class ExpressionParser {
         var operatorStack: [String] = []
         
         for token in tokens {
-            // 如果是数字，直接加入输出队列
-            if let _ = Decimal(string: token) {
-                outputQueue.append(token)
-            }
-            // 如果是运算符
-            else if isOperator(token) {
+            // 优先判断是否是已知运算符，防止像 "+" 被 Decimal 解析为 NaN 等异常
+            if isOperator(token) {
                 // 如果运算符栈不为空，且栈顶元素也是运算符
                 while let topOperator = operatorStack.last,
                       isOperator(topOperator),
@@ -58,6 +54,24 @@ class ExpressionParser {
                     outputQueue.append(operatorStack.removeLast())
                 }
                 operatorStack.append(token)
+            }
+            // 左括号入栈
+            else if token == "(" {
+                operatorStack.append(token)
+            }
+            // 右括号：弹出直到左括号
+            else if token == ")" {
+                while let top = operatorStack.last, top != "(" {
+                    outputQueue.append(operatorStack.removeLast())
+                }
+                // 弹出左括号
+                if !operatorStack.isEmpty {
+                    operatorStack.removeLast()
+                }
+            }
+            // 否则尝试解析为数字加入输出队列
+            else if let _ = Decimal(string: token) {
+                outputQueue.append(token)
             }
             // 左括号入栈
             else if token == "(" {
@@ -119,12 +133,8 @@ class ExpressionParser {
         var stack: [Decimal] = []
         
         for token in postfix {
-            // 如果是数字，入栈
-            if let number = Decimal(string: token) {
-                stack.append(number)
-            }
-            // 如果是运算符，弹出两个操作数进行计算
-            else if isOperator(token) {
+            // 先判断是不是运算符
+            if isOperator(token) {
                 guard stack.count >= 2 else {
                     print("❌ 操作数不足")
                     return nil
@@ -139,6 +149,10 @@ class ExpressionParser {
                 } else {
                     return nil
                 }
+            }
+            // 尝试转为数字入栈
+            else if let number = Decimal(string: token) {
+                stack.append(number)
             }
         }
         

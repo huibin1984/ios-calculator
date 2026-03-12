@@ -47,7 +47,7 @@ class EquationSolverViewModel: ObservableObject {
             if constantC.isEmpty {
                 result = solver.solveSimpleLinear(a: a, b: b)
             } else {
-                result = solver.solveLinear(a: a, b: b, c: c!)
+                result = solver.solveLinear(a: a, b: b, c: c)
             }
         } else if equationType == "二次" {
             // ax² + bx + c = 0
@@ -58,10 +58,10 @@ class EquationSolverViewModel: ObservableObject {
         if let result = result {
             solutionText = result.description
             // 语音反馈 (v2.5)
-            voiceManager.speak(text: "方程求解完成：\(result.description)")
+            voiceManager.speak("方程求解完成：\(result.description)")
         } else {
             solutionText = "求解失败，请检查输入"
-            voiceManager.speak(text: "求解失败，请检查输入")
+            voiceManager.speak("求解失败，请检查输入")
         }
         
         isSolving = false

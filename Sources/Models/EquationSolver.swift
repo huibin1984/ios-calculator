@@ -85,7 +85,7 @@ class EquationSolver {
         
         if delta > 0 {
             // 两个不同的实根
-            let sqrtDelta = Decimal(string: String(sqrt(Double(delta))))!
+            let sqrtDelta = Decimal(string: String(sqrt(NSDecimalNumber(decimal: delta).doubleValue)))!
             let x1 = (-b + sqrtDelta) / (Decimal(2) * a)
             let x2 = (-b - sqrtDelta) / (Decimal(2) * a)
             solutions = [x1, x2]
