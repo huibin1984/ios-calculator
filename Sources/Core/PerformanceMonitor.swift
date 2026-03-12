@@ -1,5 +1,7 @@
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 /// 性能监控管理器 (v3.4)
 class PerformanceMonitor: ObservableObject {
@@ -18,7 +20,9 @@ class PerformanceMonitor: ObservableObject {
     
     // MARK: - Private Properties
     
+    #if os(iOS)
     private var displayLink: CADisplayLink?
+    #endif
     private var frameCount: Int = 0
     private var lastFrameTime: CFTimeInterval = 0
     private var monitoringTimer: Timer?
@@ -42,9 +46,11 @@ class PerformanceMonitor: ObservableObject {
         
         isMonitoring = true
         
+        #if os(iOS)
         // FPS 监控
         displayLink = CADisplayLink(target: self, selector: #selector(updateFPS))
         displayLink?.add(to: .main, forMode: .common)
+        #endif
         
         // 内存/CPU 监控 (每 1 秒)
         monitoringTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
@@ -55,8 +61,10 @@ class PerformanceMonitor: ObservableObject {
     /// 停止监控
     func stopMonitoring() {
         isMonitoring = false
+        #if os(iOS)
         displayLink?.invalidate()
         displayLink = nil
+        #endif
         monitoringTimer?.invalidate()
         monitoringTimer = nil
     }
@@ -73,6 +81,7 @@ class PerformanceMonitor: ObservableObject {
     
     // MARK: - Private Methods
     
+    #if os(iOS)
     @objc private func updateFPS() {
         frameCount += 1
         
@@ -94,6 +103,7 @@ class PerformanceMonitor: ObservableObject {
             checkThresholds()
         }
     }
+    #endif
     
     private func updateMemoryAndCPU() {
         // 内存使用
@@ -154,7 +164,11 @@ struct PerformanceReport {
 class AppLifecycleMonitor: ObservableObject {
     static let shared = AppLifecycleMonitor()
     
+    #if os(iOS)
     @Published var appState: UIApplication.State = .inactive
+    #else
+    @Published var appState: Int = 0
+    #endif
     @Published var isInBackground: Bool = false
     
     private init() {
@@ -162,6 +176,7 @@ class AppLifecycleMonitor: ObservableObject {
     }
     
     private func setupObservers() {
+        #if os(iOS)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(appDidBecomeActive),
@@ -182,10 +197,13 @@ class AppLifecycleMonitor: ObservableObject {
             name: UIApplication.willResignActiveNotification,
             object: nil
         )
+        #endif
     }
     
     @objc private func appDidBecomeActive() {
+        #if os(iOS)
         appState = .active
+        #endif
         isInBackground = false
         
         // 恢复语音队列
@@ -200,7 +218,9 @@ class AppLifecycleMonitor: ObservableObject {
     }
     
     @objc private func appWillResignActive() {
+        #if os(iOS)
         appState = .inactive
+        #endif
     }
 }
 
@@ -211,12 +231,19 @@ class BatteryMonitor: ObservableObject {
     
     @Published var batteryLevel: Double = 1.0
     @Published var isCharging: Bool = false
+    #if os(iOS)
     @Published var batteryState: UIDevice.BatteryState = .unknown
+    #else
+    @Published var batteryState: Int = 0
+    #endif
     
     private init() {
+        #if os(iOS)
         UIDevice.current.isBatteryMonitoringEnabled = true
+        #endif
         updateBatteryInfo()
         
+        #if os(iOS)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(batteryLevelDidChange),
@@ -230,6 +257,7 @@ class BatteryMonitor: ObservableObject {
             name: UIDevice.batteryStateDidChangeNotification,
             object: nil
         )
+        #endif
     }
     
     @objc private func batteryLevelDidChange() {
@@ -241,9 +269,14 @@ class BatteryMonitor: ObservableObject {
     }
     
     private func updateBatteryInfo() {
+        #if os(iOS)
         batteryLevel = Double(UIDevice.current.batteryLevel)
         batteryState = UIDevice.current.batteryState
         isCharging = batteryState == .charging || batteryState == .full
+        #else
+        batteryLevel = 1.0
+        isCharging = true
+        #endif
     }
     
     /// 根据电池状态调整功能

@@ -96,7 +96,9 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("设置")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
         }
     }
 }

@@ -1,5 +1,7 @@
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 /// 触觉反馈管理器 - 为所有操作提供物理确认感
 class HapticFeedbackManager {
@@ -30,6 +32,7 @@ class HapticFeedbackManager {
     func lightTap() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         if #available(iOS 13.0, *) {
@@ -37,12 +40,14 @@ class HapticFeedbackManager {
         } else {
             generator.impactOccurred()
         }
+        #endif
     }
     
     /// 中等反馈 (用于运算符、等号)
     func mediumTap() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.prepare()
         if #available(iOS 13.0, *) {
@@ -50,12 +55,14 @@ class HapticFeedbackManager {
         } else {
             generator.impactOccurred()
         }
+        #endif
     }
     
     /// 重击反馈 (用于模式切换、清除操作)
     func heavyTap() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
         if #available(iOS 13.0, *) {
@@ -63,42 +70,51 @@ class HapticFeedbackManager {
         } else {
             generator.impactOccurred()
         }
+        #endif
     }
     
     /// 选择反馈 (用于模式切换、选项确认)
     func selectionChange() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UISelectionFeedbackGenerator()
         generator.prepare()
         generator.selectionChanged()
+        #endif
     }
     
     /// 错误反馈 (用于无效操作、除以零等)
     func errorOccurred() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()
         generator.notificationOccurred(.error)
+        #endif
     }
     
     /// 成功反馈 (用于计算完成、存储成功等)
     func successOccurred() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()
         generator.notificationOccurred(.success)
+        #endif
     }
     
     /// 警告反馈 (用于重要提示)
     func warningOccurred() {
         guard isEnabled else { return }
         
+        #if os(iOS)
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()
         generator.notificationOccurred(.warning)
+        #endif
     }
     
     // MARK: - Convenience Methods for Calculator

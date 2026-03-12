@@ -24,7 +24,11 @@ class FeedbackManager: ObservableObject {
             self.rating = rating
             self.message = message
             self.timestamp = Date()
+            #if os(iOS)
             self.deviceInfo = UIDevice.current.modelName
+            #else
+            self.deviceInfo = "Mac"
+            #endif
         }
     }
     
@@ -69,6 +73,7 @@ class FeedbackManager: ObservableObject {
 
 // MARK: - Device Extension
 
+#if os(iOS)
 extension UIDevice {
     var modelName: String {
         var systemInfo = utsname()
@@ -81,3 +86,4 @@ extension UIDevice {
         return identifier
     }
 }
+#endif

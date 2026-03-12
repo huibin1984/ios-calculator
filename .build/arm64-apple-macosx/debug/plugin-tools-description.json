@@ -242,7 +242,6 @@
         "-L",
         "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
         "-g",
-        "-strict-concurrency=complete",
         "-Xcc",
         "-isysroot",
         "-Xcc",
@@ -505,7 +504,6 @@
         "-L",
         "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
         "-g",
-        "-strict-concurrency=complete",
         "-Xcc",
         "-isysroot",
         "-Xcc",
@@ -554,7 +552,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/EducationalSolverTests.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/ExpressionParserTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/TransactionHistoryTests.swift"
         },
         {
           "kind" : "file",
@@ -574,7 +584,10 @@
       "moduleOutputPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules/CalculatorTests.swiftmodule",
       "objects" : [
         "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/CalculatorEngineTests.swift.o",
-        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EducationalSolverTests.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/ExpressionParserTests.swift.o",
+        "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/TransactionHistoryTests.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -612,7 +625,6 @@
         "-L",
         "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
         "-g",
-        "-strict-concurrency=complete",
         "-Xcc",
         "-isysroot",
         "-Xcc",
@@ -640,7 +652,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EducationalSolverTests.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/ExpressionParserTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/TransactionHistoryTests.swift.o"
         },
         {
           "kind" : "file",
@@ -650,7 +674,10 @@
       "prepareForIndexing" : false,
       "sources" : [
         "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift",
-        "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+        "/Users/huibin/Developer/ios-calculator/Tests/EducationalSolverTests.swift",
+        "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift",
+        "/Users/huibin/Developer/ios-calculator/Tests/ExpressionParserTests.swift",
+        "/Users/huibin/Developer/ios-calculator/Tests/TransactionHistoryTests.swift"
       ],
       "tempsPath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build",
       "wholeModuleOptimization" : false
@@ -738,7 +765,6 @@
       "-L",
       "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
       "-g",
-      "-strict-concurrency=complete",
       "-Xcc",
       "-isysroot",
       "-Xcc",
@@ -806,7 +832,6 @@
       "-L",
       "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
       "-g",
-      "-strict-concurrency=complete",
       "-Xcc",
       "-isysroot",
       "-Xcc",
@@ -836,7 +861,10 @@
       "ios_calculator",
       "-c",
       "/Users/huibin/Developer/ios-calculator/Tests/CalculatorEngineTests.swift",
+      "/Users/huibin/Developer/ios-calculator/Tests/EducationalSolverTests.swift",
       "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift",
+      "/Users/huibin/Developer/ios-calculator/Tests/ExpressionParserTests.swift",
+      "/Users/huibin/Developer/ios-calculator/Tests/TransactionHistoryTests.swift",
       "-I",
       "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -874,7 +902,6 @@
       "-L",
       "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
       "-g",
-      "-strict-concurrency=complete",
       "-Xcc",
       "-isysroot",
       "-Xcc",
@@ -1236,7 +1263,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EducationalSolverTests.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/EquationSolverTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/ExpressionParserTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/TransactionHistoryTests.swift.o"
         }
       ],
       "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorPackageTests.product/Objects.LinkFileList"
@@ -1254,7 +1293,19 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/EducationalSolverTests.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/huibin/Developer/ios-calculator/Tests/EquationSolverTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/ExpressionParserTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/huibin/Developer/ios-calculator/Tests/TransactionHistoryTests.swift"
         }
       ],
       "outputFilePath" : "/Users/huibin/Developer/ios-calculator/.build/arm64-apple-macosx/debug/CalculatorTests.build/sources"

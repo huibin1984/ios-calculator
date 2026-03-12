@@ -116,7 +116,9 @@ struct CalculatorView: View {
                     }
                 }
                 .navigationTitle("设置")
+                #if os(iOS)
                 .navigationBarTitleDisplayMode(.inline)
+                #endif
             }
         }
         .onAppear {

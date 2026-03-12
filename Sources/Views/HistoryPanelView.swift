@@ -90,7 +90,11 @@ struct HistoryPanelView: View {
                 }
             }
         }
+        #if os(iOS)
         .background(Color(UIColor.systemBackground))
+        #else
+        .background(Color.black)
+        #endif
     }
 }
 

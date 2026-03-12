@@ -39,7 +39,9 @@ struct EquationSolverView: View {
                             .fontWeight(.semibold)
                         
                         TextField("输入数字", text: $viewModel.coefficientA, onCommit: viewModel.solve)
+                            #if os(iOS)
                             .keyboardType(.decimalPad)
+                            #endif
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .accessibilityLabel("系数 A")
                     }
@@ -50,7 +52,9 @@ struct EquationSolverView: View {
                             .fontWeight(.semibold)
                         
                         TextField("输入数字", text: $viewModel.coefficientB, onCommit: viewModel.solve)
+                            #if os(iOS)
                             .keyboardType(.decimalPad)
+                            #endif
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .accessibilityLabel("系数 B")
                     }
@@ -62,7 +66,9 @@ struct EquationSolverView: View {
                                 .fontWeight(.semibold)
                             
                             TextField("常数项", text: $viewModel.constantC, onCommit: viewModel.solve)
-                                .keyboardType(.decimalPad)
+                                #if os(iOS)
+                            .keyboardType(.decimalPad)
+                            #endif
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .accessibilityLabel("常数 C")
                         }
@@ -73,7 +79,9 @@ struct EquationSolverView: View {
                                 .fontWeight(.semibold)
                             
                             TextField("常数项", text: $viewModel.constantC, onCommit: viewModel.solve)
-                                .keyboardType(.decimalPad)
+                                #if os(iOS)
+                            .keyboardType(.decimalPad)
+                            #endif
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .accessibilityLabel("常数 C")
                         }

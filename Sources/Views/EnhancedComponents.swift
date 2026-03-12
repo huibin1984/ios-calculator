@@ -238,7 +238,11 @@ struct ConfirmationDialog: View {
         .padding(24)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.systemBackground))
+                #if os(iOS)
+                .fill(Color(UIColor.systemBackground))
+                #else
+                .fill(Color.black)
+                #endif
         )
         .shadow(radius: 20)
     }

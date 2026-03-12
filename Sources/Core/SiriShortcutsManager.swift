@@ -17,7 +17,9 @@ class SiriShortcutsManager {
         activity.title = "计算 \(expression)"
         activity.userInfo = ["expression": expression, "result": result]
         activity.isEligibleForSearch = true
+        #if os(iOS)
         activity.isEligibleForPrediction = true
+        #endif
         activity.persistentIdentifier = NSUserActivityPersistentIdentifier("calculate.\(expression)")
         
         activity.becomeCurrent()

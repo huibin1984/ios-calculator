@@ -1,6 +1,8 @@
 import SwiftUI
 
+#if !os(macOS)
 @main
+#endif
 struct CalculatorApp: App {
     // MARK: - App Initialization
     

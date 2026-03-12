@@ -219,7 +219,11 @@ struct OnboardingOverlay: View {
             .padding(32)
             .background(
                 RoundedRectangle(cornerRadius: 24)
-                    .fill(Color(.systemBackground))
+                    #if os(iOS)
+                    .fill(Color(UIColor.systemBackground))
+                    #else
+                    .fill(Color.black)
+                    #endif
             )
             .padding(.horizontal, 24)
         }
